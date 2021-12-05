@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   api: 'http://localhost:7001',
+  apiBaseUrl: 'http://localhost:8089/SpringMVC'
 
 };
 
