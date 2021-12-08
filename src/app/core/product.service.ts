@@ -12,18 +12,18 @@ export class ProductService {
 
   addProduct(product: any) {
 
-    return this.http.post<any>(`${api}/product/`, product);
+    return this.http.post<any>(`${api}/products/`, product);
   }
   updateProduct(product:any,productId: any) {
 
-    return this.http.put<any>(`${api}/product/updateProduct/${productId}`,product);
+    return this.http.put<any>(`${api}/products/${productId}`,product);
   }
   deleteProduct(productId: string) {
 
-    return this.http.delete<any>(`${api}/product/deleteProduct/${productId}`);
+    return this.http.delete<any>(`${api}/products/${productId}`);
   }
   getProducts() {
 
-    return this.http.get<any>(`${api}/product/getProducts`);
+    return this.http.get<any>(`${api}/products`);
   }
 }
