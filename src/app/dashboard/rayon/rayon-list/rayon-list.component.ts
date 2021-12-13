@@ -26,8 +26,10 @@ export class RayonListComponent implements OnInit {
   faChartLine = faChartLine
   faAlignCenter = faAlignCenter
 
+
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
+
 
   displayedColumns: string[] = ['#', 'code', 'libelle', 'actions'];
   dataSource!: MatTableDataSource<any>;
@@ -56,6 +58,7 @@ export class RayonListComponent implements OnInit {
       (data) => {
         console.log("data", data)
         this.rayonList = data;
+
         this.dataSource = new MatTableDataSource<any>(this.rayonList);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

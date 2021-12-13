@@ -6,26 +6,29 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { faBuilding, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft, faUsers, faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faBuilding, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft,faUsers,faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ProductService } from 'src/app/core/product.service';
 import { RayonService } from 'src/app/core/rayon.service';
+import { StockService } from 'src/app/core/stock.service';
 import { SwalService } from 'src/app/core/swal.service';
+
 @Component({
-  selector: 'app-update-rayon',
-  templateUrl: './update-rayon.component.html',
-  styleUrls: ['./update-rayon.component.css']
+  selector: 'app-update-stock',
+  templateUrl: './update-stock.component.html',
+  styleUrls: ['./update-stock.component.css']
 })
-export class UpdateRayonComponent implements OnInit {
-  rayonForm!: FormGroup;
+export class UpdateStockComponent implements OnInit {
+
+  stockForm!: FormGroup ;
   pageTitle = 'new Rayon'
-  faBuilding = faBuilding
-  faPlusCircle = faPlusCircle
+  faBuilding=faBuilding
+  faPlusCircle=faPlusCircle
   constructor(private toastr: ToastrService,
     private formBuilder: FormBuilder,
-    private rayonService: RayonService,
-    private dialogRef: MatDialogRef<UpdateRayonComponent>,
+    private stockService: StockService,
+    private dialogRef: MatDialogRef<UpdateStockComponent>,
     private ngxLoader: NgxUiLoaderService,
     private swalService: SwalService,
     private dialog: MatDialog,
@@ -37,30 +40,26 @@ export class UpdateRayonComponent implements OnInit {
     this.createForm();
 
     if (this.data) {
-      this.rayonForm.patchValue(this.data)
-      this.pageTitle = "edit Rayon"
+      this.stockForm.patchValue(this.data)
+      this.pageTitle = "edit Stock"
     }
   }
 
   createForm() {
-    this.rayonForm = this.formBuilder.group({
-      code: [''],
-      libelle: [''],
+    this.stockForm = this.formBuilder.group({
+      libelleStock: [''],
+      qte: [''],
+      qteMin: [''],
 
     });
-  }
-
-
-  get f() {
-    return this.rayonForm.controls;
   }
 
   onSubmit() {
     if (this.data) {
 
-      this.rayonService.updateRayon(this.rayonForm.value, this.data.id).subscribe(
+      this.stockService.updateStock(this.stockForm.value, this.data.id).subscribe(
         (data) => {
-          this.openSnackBar("rayon updated", 'success')
+          this.openSnackBar("stock updated", 'success')
 
           this.dialogRef.close(data);
         },
@@ -68,17 +67,17 @@ export class UpdateRayonComponent implements OnInit {
       )
     } else {
 
-      this.rayonService.addRayon(this.rayonForm.value).subscribe(
+      this.stockService.addStock(this.stockForm.value).subscribe(
         (data) => {
-          this.openSnackBar("rayon added", 'success')
+          this.openSnackBar("stock added", 'success')
           this.dialogRef.close(data);
         },
         (err) => console.log(err)
       )
+
     }
-
-
   }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }

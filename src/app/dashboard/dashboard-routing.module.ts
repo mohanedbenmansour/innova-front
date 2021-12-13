@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 
 
+
 const routes: Routes = [{
   path: '', component: DashboardComponent,
   children: [
@@ -10,8 +11,11 @@ const routes: Routes = [{
     { path: 'rayons', loadChildren: () => import('./rayon/rayon.module').then(m => m.RayonModule) },
     { path: 'clients', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
       {path:'factures',loadChildren:() => import('./facture/facture.module').then(m => m.FactureModule)},
+      {path:'stocks',loadChildren:() => import('./stock/stock.module').then(m => m.StockModule)},
+
 
   ]
+
 
 }]
 @NgModule({
