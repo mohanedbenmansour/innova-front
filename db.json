@@ -67,21 +67,60 @@
     },
     {
       "id": 4,
-      "libelleStock": "ttttt",
-      "qte": 100,
-      "qteMin": 50
+      "jeton": 3,
+      "montantFacture": 50,
+      "montantRemise": 60,
+      "client": {
+        "categorieClient": "Fidele",
+        "dateNaissance": "2021-12-13T20:48:05.606Z",
+        "email": "string",
+        "idClient": 1,
+        "nom": "string",
+        "password": "string",
+        "prenom": "string",
+        "profession": "Autre"
+      }
+    }
+  ],
+  "clients": [
+    {
+      "nom": "feriel",
+      "prenom": "ben rahal",
+      "email": "mouradbenrahal@esprit.tn",
+      "date_naissance": "10/12/1998",
+      "profession": "AUTOR",
+      "categorie_client": "FIDELE",
+      "id": "1"
     },
     {
-      "libelleStock": "fromage",
-      "qte": "5000",
-      "qteMin": "1000",
-      "id": 5
+      "id": "2",
+      "categorie_client": "FIDELE",
+      "date_naissance": "10/12/1998",
+      "email": "omar@esprit.tn",
+      "nom": "omar",
+      "prenom": "elloumi",
+      "password": "omar123",
+      "profession": "AUTOR"
     },
     {
-      "libelleStock": "thon",
-      "qte": "562",
-      "qteMin": "241",
-      "id": 6
+      "id": "3",
+      "categorie_client": "FIDELE",
+      "date_naissance": "10/12/1998",
+      "email": "mohaned@esprit.tn",
+      "nom": "mohaned",
+      "prenom": "ben mansour",
+      "password": "mohaned123",
+      "profession": "DOCTOR"
+    },
+    {
+      "id": "4",
+      "categorie_client": "FIDELE",
+      "date_naissance": "10/12/1998",
+      "email": "mouradbenrahal@esprit.tn",
+      "nom": "mourad",
+      "prenom": "ben rahal",
+      "password": "mourad123",
+      "profession": "AUTOR"
     }
   ],
   "factures": [
