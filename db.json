@@ -52,6 +52,79 @@
       "libelle": "est"
     }
   ],
+  "factures": [
+    {
+      "active": true,
+      "dateFacture": "2021-12-13T10:00:49.374Z",
+      "id": 1,
+      "jeton": 0,
+      "montantFacture": 50,
+      "montantRemise": 60,
+      "client": {
+        "categorieClient": "Fidele",
+        "dateNaissance": "2021-12-13T20:48:05.606Z",
+        "email": "string",
+        "idClient": 1,
+        "nom": "string",
+        "password": "string",
+        "prenom": "string",
+        "profession": "Autre"
+      }
+    },
+    {
+      "active": true,
+      "dateFacture": "2021-12-13T10:00:49.374Z",
+      "id": 2,
+      "jeton": 1,
+      "montantFacture": 50,
+      "montantRemise": 60,
+      "client": {
+        "categorieClient": "Fidele",
+        "dateNaissance": "2021-12-13T20:48:05.606Z",
+        "email": "string",
+        "idClient": 1,
+        "nom": "string",
+        "password": "string",
+        "prenom": "string",
+        "profession": "Autre"
+      }
+    },
+    {
+      "active": true,
+      "dateFacture": "2021-12-13T10:00:49.374Z",
+      "id": 3,
+      "jeton": 2,
+      "montantFacture": 50,
+      "montantRemise": 60,
+      "client": {
+        "categorieClient": "Fidele",
+        "dateNaissance": "2021-12-13T20:48:05.606Z",
+        "email": "string",
+        "idClient": 1,
+        "nom": "string",
+        "password": "string",
+        "prenom": "string",
+        "profession": "Autre"
+      }
+    },
+    {
+      "active": true,
+      "dateFacture": "2021-12-13T10:00:49.374Z",
+      "id": 4,
+      "jeton": 3,
+      "montantFacture": 50,
+      "montantRemise": 60,
+      "client": {
+        "categorieClient": "Fidele",
+        "dateNaissance": "2021-12-13T20:48:05.606Z",
+        "email": "string",
+        "idClient": 1,
+        "nom": "string",
+        "password": "string",
+        "prenom": "string",
+        "profession": "Autre"
+      } ],
+
   "clients": [
     {
       "nom": "feriel",
@@ -91,6 +164,5 @@
       "prenom": "ben rahal",
       "password": "mourad123",
       "profession": "AUTOR"
-    }
-  ]
+    }]
 }
