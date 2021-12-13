@@ -18,8 +18,6 @@ import { UpdateRayonComponent } from '../update-rayon/update-rayon.component';
 })
 export class RayonListComponent implements OnInit {
   rayonList: any
-
-
   faAngleDoubleLeft = faAngleDoubleLeft;
   faPlusCircle = faPlusCircle;
   faUsers = faUsers;
@@ -31,6 +29,7 @@ export class RayonListComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
+
 
   displayedColumns: string[] = ['#', 'code', 'libelle', 'actions'];
   dataSource!: MatTableDataSource<any>;
@@ -66,7 +65,6 @@ export class RayonListComponent implements OnInit {
       },
       (err) => {
         console.log(err)
-
       }
     )
   }

@@ -13,7 +13,6 @@ export class RayonService {
     return this.http.post<any>(`${api}/rayons/`, rayon);
   }
   updateRayon(rayon:any,rayonId: any) {
-
     return this.http.put<any>(`${api}/rayons/${rayonId}`,rayon);
   }
   deleteRayon(rayonId: string) {
