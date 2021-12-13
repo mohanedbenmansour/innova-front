@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RayonService } from 'src/app/core/rayon.service';
-import { faUser, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft,faUsers,faTrashAlt, faPen,faChartLine, faAlignCenter } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft, faUsers, faTrashAlt, faPen, faChartLine, faAlignCenter } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
@@ -23,21 +23,21 @@ export class RayonListComponent implements OnInit {
   faAngleDoubleLeft = faAngleDoubleLeft;
   faPlusCircle = faPlusCircle;
   faUsers = faUsers;
-  faTrashAlt=faTrashAlt
-  faPen=faPen
-  faChartLine=faChartLine
-faAlignCenter=faAlignCenter
+  faTrashAlt = faTrashAlt
+  faPen = faPen
+  faChartLine = faChartLine
+  faAlignCenter = faAlignCenter
 
-  
-  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator ;
-  @ViewChild(MatSort, { static: true }) sort!: MatSort ;
 
-  displayedColumns: string[] = ['#','code','libelle','actions'];
-  dataSource!: MatTableDataSource<any> ;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+
+  displayedColumns: string[] = ['#', 'code', 'libelle', 'actions'];
+  dataSource!: MatTableDataSource<any>;
 
 
   constructor(private rayonService: RayonService,
-    
+
     private toastr: ToastrService,
     private dialogRef: MatDialogRef<RayonListComponent>,
     private ngxLoader: NgxUiLoaderService,
@@ -57,12 +57,12 @@ faAlignCenter=faAlignCenter
   getRayons() {
     this.rayonService.getRayons().subscribe(
       (data) => {
-        console.log("data",data)
+        console.log("data", data)
         this.rayonList = data;
 
-        this.dataSource = new MatTableDataSource<any>(this.rayonList );
+        this.dataSource = new MatTableDataSource<any>(this.rayonList);
         this.dataSource.paginator = this.paginator;
-         this.dataSource.sort = this.sort;
+        this.dataSource.sort = this.sort;
       },
       (err) => {
         console.log(err)
@@ -71,29 +71,29 @@ faAlignCenter=faAlignCenter
     )
   }
 
-  deleteRayon(rayonId:string){
-this.rayonService.deleteRayon(rayonId).subscribe(
-  (data)=>{
- this.rayonList=this.rayonList.filter((rayon:any)=>{
-return rayon.id!=rayonId
- })
+  deleteRayon(rayonId: string) {
+    this.rayonService.deleteRayon(rayonId).subscribe(
+      (data) => {
+        this.rayonList = this.rayonList.filter((rayon: any) => {
+          return rayon.id != rayonId
+        })
 
- this.dataSource = new MatTableDataSource<any>(this.rayonList );
- this.dataSource.paginator = this.paginator;
-  this.dataSource.sort = this.sort;
-  },
-  (err)=>{
+        this.dataSource = new MatTableDataSource<any>(this.rayonList);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      (err) => {
 
+      }
+    )
   }
-)
-  }
 
-  openDialogCreateRayon(){
+  openDialogCreateRayon() {
     const dialogRef = this.dialog.open(UpdateRayonComponent,
       {
         width: '80%',
         height: '60%',
-        
+
       });
 
     dialogRef.disableClose = false;
@@ -101,30 +101,30 @@ return rayon.id!=rayonId
       if (!res)
         return
       this.rayonList.push(res)
-      
-      this.dataSource = new MatTableDataSource<any>(this.rayonList );
- this.dataSource.paginator = this.paginator;
-  this.dataSource.sort = this.sort;
-     
+
+      this.dataSource = new MatTableDataSource<any>(this.rayonList);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+
     });
   }
 
-  openDialogEditRayon(element:any,index:number){
+  openDialogEditRayon(element: any, index: number) {
     const dialogRef = this.dialog.open(UpdateRayonComponent,
       {
         width: '80%',
         height: '60%',
-        data:element
+        data: element
       });
 
     dialogRef.disableClose = false;
     dialogRef.afterClosed().subscribe((res: any) => {
       if (!res)
         return
-this.rayonList[index]=res
-this.dataSource = new MatTableDataSource<any>(this.rayonList );
-this.dataSource.paginator = this.paginator;
- this.dataSource.sort = this.sort;
+      this.rayonList[index] = res
+      this.dataSource = new MatTableDataSource<any>(this.rayonList);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 

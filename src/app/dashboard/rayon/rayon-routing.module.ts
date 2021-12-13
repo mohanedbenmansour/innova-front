@@ -4,9 +4,8 @@ import { RayonListComponent } from './rayon-list/rayon-list.component';
 import { RayonComponent } from './rayon.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'listRayon' },
-
-{path:'listRayon',component:RayonListComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'listRayon' },
+  {path:'listRayon',component:RayonListComponent},
 
 ];
 

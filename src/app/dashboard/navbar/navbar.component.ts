@@ -21,4 +21,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl("/dashboard/rayons")
 
   }
+
+  gotToStock() {
+    this.router.navigateByUrl("/dashboard/stocks")
+  }
 }
