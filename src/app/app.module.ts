@@ -8,12 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularMaterialModule } from './shared/angular-material.module';
 import { ToastrModule } from 'ngx-toastr';
-import { ProductChartComponent } from './dasboard/product/product-chart/product-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductChartComponent
+    
   ],
   imports: [
     BrowserModule,

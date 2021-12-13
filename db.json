@@ -2,15 +2,9 @@
   "products": [
     {
       "code": 222,
-      "libelle": "tshirt2",
-      "prixUnitaire": 150,
+      "libelle": "omar",
+      "prixUnitaire": "200",
       "id": 2
-    },
-    {
-      "id": 3,
-      "code": 333,
-      "libelle": "tshirt",
-      "prixUnitaire": 150
     },
     {
       "id": 4,
@@ -19,16 +13,43 @@
       "prixUnitaire": 150
     },
     {
-      "id": 5,
       "code": 555,
-      "libelle": "tshirt",
-      "prixUnitaire": 150
+      "libelle": "feriel",
+      "prixUnitaire": 150,
+      "id": 5
     },
     {
       "code": "etre",
       "libelle": "est",
       "prixUnitaire": "rere",
       "id": 7
+    }
+  ],
+  "rayons": [
+    {
+      "code": 222,
+      "libelle": "mourad",
+      "id": 7
+    },
+    {
+      "code": 555,
+      "libelle": "feriel",
+      "id": 9
+    },
+    {
+      "id": 10,
+      "code": "etre",
+      "libelle": "est"
+    },
+    {
+      "id": 11,
+      "code": "etre",
+      "libelle": "est"
+    },
+    {
+      "id": 12,
+      "code": "etre",
+      "libelle": "est"
     }
   ]
 }
