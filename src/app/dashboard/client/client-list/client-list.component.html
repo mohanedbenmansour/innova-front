@@ -1,0 +1,80 @@
+<div class="row mb-2">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+        <h2 class="ms-3">
+            <fa-icon class="me-2" [icon]="faAlignCenter"></fa-icon>
+            Client
+        </h2>
+        <div>
+            <button mat-raised-button color="accent">
+                <fa-icon class="me-2" [icon]="faChartLine"></fa-icon>
+                charts
+            </button>
+            <button mat-raised-button color="accent" (click)="openDialogCreateClient()">
+                <fa-icon class="me-2" [icon]="faPlusCircle"></fa-icon>
+                add Client
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="card rounded">
+    <div class="card-body my-2 py-25">
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table mat-table [dataSource]="dataSource" matSort #sort="matSort">
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="#">
+                            <th mat-header-cell *matHeaderCellDef> Number </th>
+                            <td mat-cell *matCellDef="let element;let index=index"> {{element.id}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="nom">
+                            <th mat-header-cell *matHeaderCellDef> Nom </th>
+                            <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="prenom">
+                            <th mat-header-cell *matHeaderCellDef> Prenom </th>
+                            <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef> Email </th>
+                            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="date_naissance">
+                            <th mat-header-cell *matHeaderCellDef> Data naissance </th>
+                            <td mat-cell *matCellDef="let element"> {{element.date_naissance}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="profession">
+                            <th mat-header-cell *matHeaderCellDef> Profession </th>
+                            <td mat-cell *matCellDef="let element"> {{element.profession}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="categorie_client">
+                            <th mat-header-cell *matHeaderCellDef> Catégorie </th>
+                            <td mat-cell *matCellDef="let element"> {{element.categorie_client}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef> Actions </th>
+                            <td mat-cell *matCellDef="let element;let index=index">
+                                <button class="btn" (click)="openDialogEditClient(element,index)">
+                                    <fa-icon [icon]="faPen"></fa-icon>
+                                </button>
+                                <button class="btn" (click)="deleteClient(element.id)">
+                                    <fa-icon class="text-danger" [icon]="faTrashAlt"></fa-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator #paginator [hidePageSize]="true" [pageSizeOptions]="[3]" showFirstLastButtons>
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
