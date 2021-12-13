@@ -52,5 +52,37 @@
       "code": "etre",
       "libelle": "est"
     }
+  ],
+  "stocks": [
+    {
+      "id": 2,
+      "libelleStock": "pates",
+      "qte": 100,
+      "qteMin": 50
+    },
+    {
+      "id": 3,
+      "libelleStock": "rrrr",
+      "qte": 100,
+      "qteMin": 50
+    },
+    {
+      "id": 4,
+      "libelleStock": "ttttt",
+      "qte": 100,
+      "qteMin": 50
+    },
+    {
+      "libelleStock": "fromage",
+      "qte": "5000",
+      "qteMin": "1000",
+      "id": 5
+    },
+    {
+      "libelleStock": "thon",
+      "qte": "562",
+      "qteMin": "241",
+      "id": 6
+    }
   ]
 }
