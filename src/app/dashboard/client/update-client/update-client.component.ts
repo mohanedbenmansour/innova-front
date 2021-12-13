@@ -1,7 +1,7 @@
+import { ClientService } from 'src/app/core/client.service';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
@@ -13,19 +13,19 @@ import { ProductService } from 'src/app/core/product.service';
 import { RayonService } from 'src/app/core/rayon.service';
 import { SwalService } from 'src/app/core/swal.service';
 @Component({
-  selector: 'app-update-rayon',
-  templateUrl: './update-rayon.component.html',
-  styleUrls: ['./update-rayon.component.css']
+  selector: 'app-update-client',
+  templateUrl: './update-client.component.html',
+  styleUrls: ['./update-client.component.css']
 })
-export class UpdateRayonComponent implements OnInit {
-  rayonForm!: FormGroup;
-  pageTitle = 'new Rayon'
+export class UpdateClientComponent implements OnInit {
+  clientForm!: FormGroup;
+  pageTitle = 'new Client'
   faBuilding = faBuilding
   faPlusCircle = faPlusCircle
   constructor(private toastr: ToastrService,
     private formBuilder: FormBuilder,
-    private rayonService: RayonService,
-    private dialogRef: MatDialogRef<UpdateRayonComponent>,
+    private clientService: ClientService,
+    private dialogRef: MatDialogRef<UpdateClientComponent>,
     private ngxLoader: NgxUiLoaderService,
     private swalService: SwalService,
     private dialog: MatDialog,
@@ -35,50 +35,51 @@ export class UpdateRayonComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-
     if (this.data) {
-      this.rayonForm.patchValue(this.data)
-      this.pageTitle = "edit Rayon"
+      this.clientForm.patchValue(this.data)
+      this.pageTitle = "edit Client"
     }
   }
 
   createForm() {
-    this.rayonForm = this.formBuilder.group({
-      code: [''],
-      libelle: [''],
-
+    this.clientForm = this.formBuilder.group({
+      nom: [''],
+      prenom: [''],
+      email: [''],
+      date_naissance: [''],
+      profession: [''],
+      categorie_client: ['']
     });
   }
 
-
   get f() {
-    return this.rayonForm.controls;
+    return this.clientForm.controls;
   }
 
   onSubmit() {
     if (this.data) {
-
-      this.rayonService.updateRayon(this.rayonForm.value, this.data.id).subscribe(
+      console.log("++++")
+      this.clientService.updateClient(this.clientForm.value, this.data.id).subscribe(
         (data) => {
-          this.openSnackBar("rayon updated", 'success')
-
+          console.log(data, 'data edited')
+          this.openSnackBar("client updated", 'success')
           this.dialogRef.close(data);
         },
         (err) => console.log(err)
       )
     } else {
-
-      this.rayonService.addRayon(this.rayonForm.value).subscribe(
+      this.clientService.addClient(this.clientForm.value).subscribe(
         (data) => {
-          this.openSnackBar("rayon added", 'success')
+          console.log(data, 'data add client')
+          this.openSnackBar("client added", 'success')
           this.dialogRef.close(data);
         },
         (err) => console.log(err)
       )
     }
 
-
   }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }

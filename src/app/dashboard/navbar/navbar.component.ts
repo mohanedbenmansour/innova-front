@@ -8,18 +8,21 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  goToProducts(){
+  goToProducts() {
     this.router.navigateByUrl("/dashboard/products")
   }
 
-  gotToRayon(){
+  goToRayon() {
     this.router.navigateByUrl("/dashboard/rayons")
+  }
 
+  goToClient() {
+    this.router.navigateByUrl("/dashboard/clients")
   }
 
   gotToStock() {
