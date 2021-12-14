@@ -66,20 +66,22 @@
       "qteMin": 50
     },
     {
-      "id": 4,
-      "jeton": 3,
-      "montantFacture": 50,
-      "montantRemise": 60,
-      "client": {
-        "categorieClient": "Fidele",
-        "dateNaissance": "2021-12-13T20:48:05.606Z",
-        "email": "string",
-        "idClient": 1,
-        "nom": "string",
-        "password": "string",
-        "prenom": "string",
-        "profession": "Autre"
-      }
+      "libelleStock": "chocolat",
+      "qte": "200",
+      "qteMin": "100",
+      "id": 4
+    },
+    {
+      "libelleStock": "fromage",
+      "qte": "500",
+      "qteMin": "100",
+      "id": 5
+    },
+    {
+      "libelleStock": "zeert",
+      "qte": "110",
+      "qteMin": "20",
+      "id": 6
     }
   ],
   "clients": [
