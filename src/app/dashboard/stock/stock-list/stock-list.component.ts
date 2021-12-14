@@ -38,6 +38,7 @@ export class StockListComponent implements OnInit {
   @ViewChild('content', {static: false}) el!: ElementRef;
 
   stockList: any
+  libelleStock: any
   constructor(private  stockService: StockService,
     private toastr: ToastrService,
     private dialogRef: MatDialogRef<StockListComponent>,
@@ -133,20 +134,27 @@ export class StockListComponent implements OnInit {
     });
   }
 
-  /*public searchStocks(key: string): void {
+
+
+   Searchrayon(key: any) {
     console.log(key);
-    const results: [] = [];
-    for (const stock of this.stockList) {
-      if (stock.libelleStock.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || stock.qte.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || stock.qteMin.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
-        results.push(stock);
+    const results: any[] = [];
+    for (const s of this.stockList) {
+      if (s.libelleStock.toLowerCase().indexOf(key.toLowerCase()) !== -1) 
+      {
+        results.push(s);
       }
     }
     this.stockList = results;
-    if (results.length === 0 || !key) {
+    console.log(this.stockList);
+
+    this.dataSource = new MatTableDataSource<any>(this.stockList);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    if ( !key) {
       this.getStocks();
     }
-  }*/
+  }
+    
 
 }

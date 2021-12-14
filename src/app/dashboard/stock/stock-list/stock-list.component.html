@@ -4,11 +4,14 @@
             <fa-icon class="me-2" [icon]="faAlignCenter"></fa-icon>
             Stock
         </h2>
+        <div>
+            <form class="form-inline my-2 my-lg-0">
+                <input style="margin: auto;" type="search" (ngModelChange)="Searchrayon(key.value)" #key="ngModel" ngModel 
+                 name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Stock..." required >
+              </form>
+        </div>
         <div class="p-2">
-         <!----   <form class="form-inline my-2 my-lg-0">
-                <input type="search" (ngModelChange)="searchStocks(key.value)" #key="ngModel" ngModel
-                 name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search stocks..." required>
-             </form> ---->
+             
             <button  mat-raised-button color="accent" class="m-2">
                 <fa-icon class="me-2" [icon]="faChartLine"></fa-icon>
                 charts

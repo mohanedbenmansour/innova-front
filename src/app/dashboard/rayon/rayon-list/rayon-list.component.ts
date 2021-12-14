@@ -126,4 +126,24 @@ export class RayonListComponent implements OnInit {
     });
   }
 
+  public Searchrayon(key: any): void {
+    console.log(key);
+    const results: any[] = [];
+    for (const s of this.rayonList) {
+      if (s.libelle.toLowerCase().indexOf(key.toLowerCase()) !== -1) 
+      {
+        results.push(s);
+      }
+    }
+    this.rayonList = results;
+    console.log(this.rayonList);
+
+    this.dataSource = new MatTableDataSource<any>(this.rayonList);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    if ( !key) {
+      this.getRayons();
+    }
+  }
+
 }
