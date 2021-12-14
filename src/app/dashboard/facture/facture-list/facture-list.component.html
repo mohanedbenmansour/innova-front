@@ -10,12 +10,16 @@
         <fa-icon class="me-2" [icon]="faPlusCircle"></fa-icon>
         Add Facture
       </button>
+      <button  mat-icon-button color="accent" (click)="makePDF()">
+        <fa-icon class="me-2" [icon]="faFilePdf"></fa-icon>
+
+      </button>
     </div>
 
   </div>
 </div>
 
-<div class="card rounded">
+<div class="card rounded" #content>
   <div class="card-body my-2 py-25">
     <div class="row mt-3">
       <div class="col-12">

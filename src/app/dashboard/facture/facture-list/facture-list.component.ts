@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -6,14 +6,14 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { faUser, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft,faUsers,faTrashAlt, faPen,faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft,faUsers,faTrashAlt, faPen,faChartLine ,faFilePdf} from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { SwalService } from 'src/app/core/swal.service';
 import { FactureService } from 'src/app/core/facture.service';
 import { FactureUpdateComponent } from '../facture-update/facture-update.component';
-import {ProductService} from "../../../core/product.service";
-import {UpdateProductComponent} from "../../product/update-product/update-product.component";
+
+import jsPDF, { jsPDFAPI } from 'jspdf';
 @Component({
   selector: 'app-facture-list',
   templateUrl: './facture-list.component.html',
@@ -31,9 +31,10 @@ export class FactureListComponent implements OnInit {
   faTrashAlt=faTrashAlt
   faPen=faPen
   faChartLine=faChartLine
+  faFilePdf=faFilePdf
   factureList:any
 
-
+  @ViewChild('content', {static: false}) el!: ElementRef;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator ;
   @ViewChild(MatSort, { static: true }) sort!: MatSort ;
 
@@ -181,4 +182,14 @@ export class FactureListComponent implements OnInit {
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
+
+  makePDF(){
+    let pdf = new jsPDF('p','pt','a2');
+    pdf.html(this.el.nativeElement,{
+      callback: (pdf)=> {
+        pdf.save("factures.pdf");
+      }
+    });
+  }
+
 }
