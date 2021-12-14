@@ -1,0 +1,60 @@
+.navbar-nav {
+    margin-left: auto;
+    
+}
+
+nav{
+    
+    box-shadow:0px 5px 5px #ff4081;
+
+}
+
+.heart {
+   
+    background-color: pink;
+    height: 30px;
+    width: 30px;
+    transform: rotate(-45deg);
+    animation-name: beat;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+
+  }
+  .heart:after {
+    background-color: pink;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0px;
+    left: 15px;
+  }
+  .heart:before {
+    background-color: pink;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: 0px;
+  }
+  
+  @keyframes beat {
+    0% {
+      transform: scale(1) rotate(-45deg);
+      
+    }
+    50% {
+      transform: scale(0.6) rotate(-45deg);
+    }
+    100%{
+ 
+    }}
+
+    a{
+        cursor: pointer;
+    }
+
+  

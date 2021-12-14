@@ -1,32 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Innova dashboard</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg text-light p-3 ">
+  <a class="navbar-brand text-light" href="#">
+    <div class="heart"></div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" >Home </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="goToProducts()">Produit</a>
-        </li>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        <li class="nav-item">
-            <a class="nav-link" (click)="gotToRayon()">Rayon</a>
+
+  <div class="collapse navbar-collapse align-center" id="navbarSupportedContent">
+    <ul class="navbar-nav ">
+      <li class="nav-item active">
+        <a class="nav-link text-light">Home </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" (click)="goToClient()">Client</a>
+      </li>
+      <li class="nav-item"  routerLinkActive="is-active">
+        <a class="nav-link text-light" (click)="goToProducts()">Produit</a>
+      </li>
+      <li class="nav-item"  routerLinkActive="is-active">
+        <a class="nav-link text-light" (click)="goToRayon()">Rayon</a>
+      </li>
+       <li class="nav-item">
+         <li class="nav-item text-light">
+            <a class="nav-link text-light" (click)="gotToStock()">stock</a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Fournisseur</a>
-          </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="gotToFacture()">Facture</a>
+
+          <a class="nav-link text-light" (click)="gotToFacture()">Facture</a>
         </li>
+    </ul>
+  </div>
+</nav>
 
-
-
-      </ul>
-
-    </div>
-  </nav>
