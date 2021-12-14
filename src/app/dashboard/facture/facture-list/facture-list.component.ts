@@ -22,7 +22,7 @@ import jsPDF, { jsPDFAPI } from 'jspdf';
 export class FactureListComponent implements OnInit {
 
 
-
+  searchedKeyword: string="";
   listUsers: any = [];
   selectedUser: any;
   faAngleDoubleLeft = faAngleDoubleLeft;
@@ -190,6 +190,12 @@ export class FactureListComponent implements OnInit {
         pdf.save("factures.pdf");
       }
     });
-  }
+
+
+
+
+}
+
+
 
 }

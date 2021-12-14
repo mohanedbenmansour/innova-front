@@ -2,7 +2,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import { faBuilding, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft,faUsers,faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons';
-
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {NgxUiLoaderService} from "ngx-ui-loader";
 import {SwalService} from "../../../core/swal.service";
@@ -19,6 +18,7 @@ export class FactureUpdateComponent implements OnInit {
   pageTitle = 'new Facture';
   faBuilding=faBuilding
   faPlusCircle=faPlusCircle
+
   constructor(private toastr: ToastrService,
               private formBuilder: FormBuilder,
               private factureService: FactureService,
@@ -34,6 +34,7 @@ export class FactureUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.createForm();
 
     if(this.data){
