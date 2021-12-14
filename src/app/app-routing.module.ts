@@ -6,6 +6,8 @@ const routes: Routes = [{ path: 'front-office', loadChildren: () => import('./fr
 { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
 
 
+
+
 ];
  
 

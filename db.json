@@ -2,54 +2,68 @@
   "products": [
     {
       "code": 222,
-      "libelle": "omar",
+      "libelle": "loujein",
       "prixUnitaire": "200",
+      "type": "tshirt",
       "id": 2
     },
     {
       "id": 4,
       "code": 444,
       "libelle": "tshirt",
+      "type": "tshirt",
+      "prixUnitaire": 150
+    },
+    {
+      "id": 13,
+      "code": 444,
+      "libelle": "tshirt",
+      "type": "tanktop",
+      "prixUnitaire": 150
+    },
+    {
+      "id": 14,
+      "code": 444,
+      "libelle": "tshirt",
+      "type": "hoody",
       "prixUnitaire": 150
     },
     {
       "code": 555,
       "libelle": "feriel",
       "prixUnitaire": 150,
+      "type": "tanktop",
       "id": 5
     },
     {
       "code": "etre",
-      "libelle": "est",
+      "libelle": "ca",
+      "type": "tshirt",
       "prixUnitaire": "rere",
       "id": 7
+    },
+    {
+      "code": "etre",
+      "libelle": "ca",
+      "type": "hoody",
+      "prixUnitaire": "rere",
+      "id": 8
+    },
+    {
+      "code": "etre",
+      "libelle": "ca",
+      "type": "jacket",
+      "prixUnitaire": "rere",
+      "id": 9
     }
   ],
-  "rayons": [
+  "carts": [
     {
       "code": 222,
-      "libelle": "mourad",
-      "id": 7
-    },
-    {
-      "code": 555,
-      "libelle": "feriel",
-      "id": 9
-    },
-    {
-      "id": 10,
-      "code": "etre",
-      "libelle": "est"
-    },
-    {
-      "id": 11,
-      "code": "etre",
-      "libelle": "est"
-    },
-    {
-      "id": 12,
-      "code": "etre",
-      "libelle": "est"
+      "libelle": "loujein",
+      "prixUnitaire": "200",
+      "type": "/assets/tshirt.jpg",
+      "id": 2
     }
   ],
   "stocks": [
