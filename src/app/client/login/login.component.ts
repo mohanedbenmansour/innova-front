@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           if (user.role == "ADMIN") {
             this.router.navigate(["/dashboard/clients"])
           } else {
-            this.router.navigate(["/front-office"])
+            this.router.navigate(["/front-office/shop"])
           }
         } else {
           this.openSnackBar("check username and password",'login failed ')

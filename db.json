@@ -102,6 +102,8 @@
       "nom": "feriel",
       "prenom": "ben rahal",
       "email": "mouradbenrahal12@gmail.com",
+      "password": "mourad123",
+
       "date_naissance": "12/10/1998",
       "profession": "AUTOR",
       "categorie_client": "FIDELE",
