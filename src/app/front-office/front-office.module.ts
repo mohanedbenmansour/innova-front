@@ -8,6 +8,7 @@ import { FrontNavbarComponent } from './front-navbar/front-navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatMenuModule } from '@angular/material/menu';
 import { CartComponent } from './cart/cart.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     FrontOfficeComponent,
@@ -18,7 +19,9 @@ import { CartComponent } from './cart/cart.component';
     FontAwesomeModule,
     CommonModule,
     FrontOfficeRoutingModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FrontOfficeModule { }

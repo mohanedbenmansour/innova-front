@@ -48,7 +48,7 @@ export class ClientListComponent implements OnInit {
     this.getClients();
   }
 
-  //Get List Clients
+
   getClients() {
     this.clientService.getClients().subscribe(
       (data) => {
@@ -63,6 +63,7 @@ export class ClientListComponent implements OnInit {
       }
     )
   }
+
 
   //delete ClientById
   deleteClient(id: string) {
@@ -95,12 +96,16 @@ export class ClientListComponent implements OnInit {
   }
 
   //Add Client
+
   openDialogCreateClient() {
     const dialogRef = this.dialog.open(UpdateClientComponent,
       {
         width: '80%',
         height: '60%',
+
       });
+
+
     dialogRef.disableClose = false;
     dialogRef.afterClosed().subscribe((res: any) => {
       if (!res)
@@ -113,7 +118,7 @@ export class ClientListComponent implements OnInit {
     });
   }
 
-  //Edit Client
+
   openDialogEditClient(element: any, index: number) {
     const dialogRef = this.dialog.open(UpdateClientComponent,
       {
@@ -132,6 +137,5 @@ export class ClientListComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
-
 
 }
