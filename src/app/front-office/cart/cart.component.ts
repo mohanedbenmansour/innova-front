@@ -70,7 +70,7 @@ console.log(this.currentUser)
     });
     facture.detailFacture=detailFacture
     facture.total=this.total
-    
+    facture.client=this.currentUser
     console.log("detailfacture",detailFacture)
     console.log("total",this.total)
 
