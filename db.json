@@ -57,84 +57,7 @@
       "id": 9
     }
   ],
-  "carts": [
-    {
-      "code": 222,
-      "libelle": "loujein",
-      "prixUnitaire": "200",
-      "type": "/assets/tshirt.jpg",
-      "id": 2,
-      "client": {
-        "nom": "mourad",
-        "prenom": "ben rahal",
-        "email": "mouradbenrahal12@gmail.com",
-        "date_naissance": "12/10/1998",
-        "profession": "AUTOR",
-        "password": "mourad123",
-        "categorie_client": "FIDELE",
-        "role": "USER",
-        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-        "id": "rYkxKuA"
-      }
-    },
-    {
-      "code": 555,
-      "libelle": "feriel",
-      "prixUnitaire": 150,
-      "type": "/assets/tanktop.jpg",
-      "id": 5,
-      "client": {
-        "nom": "mourad",
-        "prenom": "ben rahal",
-        "email": "mouradbenrahal12@gmail.com",
-        "date_naissance": "12/10/1998",
-        "profession": "AUTOR",
-        "password": "mourad123",
-        "categorie_client": "FIDELE",
-        "role": "USER",
-        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-        "id": "rYkxKuA"
-      }
-    },
-    {
-      "id": 4,
-      "code": 444,
-      "libelle": "tshirt",
-      "type": "/assets/tshirt.jpg",
-      "prixUnitaire": 150,
-      "client": {
-        "nom": "mourad",
-        "prenom": "ben rahal",
-        "email": "mouradbenrahal12@gmail.com",
-        "date_naissance": "12/10/1998",
-        "profession": "AUTOR",
-        "password": "mourad123",
-        "categorie_client": "FIDELE",
-        "role": "USER",
-        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-        "id": "rYkxKuA"
-      }
-    },
-    {
-      "id": 13,
-      "code": 444,
-      "libelle": "tshirt",
-      "type": "/assets/tanktop.jpg",
-      "prixUnitaire": 150,
-      "client": {
-        "nom": "mourad19",
-        "prenom": "ben rahal",
-        "email": "mouradbenrahal12@gmail.com",
-        "date_naissance": "12/10/1998",
-        "profession": "AUTOR",
-        "password": "mourad123",
-        "categorie_client": "FIDELE",
-        "role": "USER",
-        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-        "id": "rYkxKuA"
-      }
-    }
-  ],
+  "carts": [],
   "stocks": [
     {
       "id": 2,
@@ -214,6 +137,94 @@
         "prenom": "string",
         "profession": "Autre"
       }
+    },
+    {
+      "detailFactures": [
+        {
+          "produit": {
+            "libelle": "loujein",
+            "code": 222
+          },
+          "qte": 1,
+          "prix": "200"
+        },
+        {
+          "produit": {
+            "libelle": "feriel",
+            "code": 555
+          },
+          "qte": 1,
+          "prix": 150
+        },
+        {
+          "produit": {
+            "libelle": "tshirt",
+            "code": 444
+          },
+          "qte": 1,
+          "prix": 150
+        }
+      ],
+      "montantFacture": 0,
+      "client": {
+        "id": "4",
+        "categorie_client": "FIDELE",
+        "date_naissance": "10/12/1998",
+        "email": "mouradbenrahal@esprit.tn",
+        "nom": "mourad",
+        "prenom": "ben rahal",
+        "password": "mourad123",
+        "profession": "AUTOR"
+      },
+      "code": "dJVgqY",
+      "active": true,
+      "dateFacture": "2021-12-15T04:32:12.694Z",
+      "id": 4
+    },
+    {
+      "detailFactures": [
+        {
+          "produit": {
+            "libelle": "tshirt",
+            "code": 444
+          },
+          "qte": 1,
+          "prix": 150
+        },
+        {
+          "produit": {
+            "libelle": "loujein",
+            "code": 222
+          },
+          "qte": 1,
+          "prix": "200"
+        },
+        {
+          "produit": {
+            "libelle": "tshirt",
+            "code": 444
+          },
+          "qte": 1,
+          "prix": 150
+        }
+      ],
+      "montantFacture": 500,
+      "client": {
+        "nom": "mourad",
+        "prenom": "ben rahal",
+        "email": "mouradbenrahal12@gmail.com",
+        "date_naissance": "12/10/1998",
+        "profession": "AUTOR",
+        "password": "mourad123",
+        "categorie_client": "FIDELE",
+        "role": "USER",
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+        "id": "rYkxKuA"
+      },
+      "code": "x06HUj",
+      "active": true,
+      "dateFacture": "2021-12-15T04:45:01.376Z",
+      "id": 5
     }
   ]
 }

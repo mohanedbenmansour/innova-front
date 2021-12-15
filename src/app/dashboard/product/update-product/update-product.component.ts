@@ -49,7 +49,8 @@ if(this.data){
     this.productForm = this.formBuilder.group({
       code: [''],
       libelle:[''],
-      prixUnitaire:['']
+      prixUnitaire:[''],
+      type:[""]
     });
   }
 
