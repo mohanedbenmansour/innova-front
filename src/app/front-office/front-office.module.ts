@@ -7,7 +7,7 @@ import { FrontOfficeComponent } from './front-office.component';
 
 @NgModule({
   declarations: [
-    FrontOfficeComponent
+    FrontOfficeComponent,
   ],
   imports: [
     CommonModule,

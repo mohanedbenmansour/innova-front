@@ -64,63 +64,32 @@
       "libelleStock": "rrrr",
       "qte": 100,
       "qteMin": 50
-    },
-    {
-      "id": 4,
-      "jeton": 3,
-      "montantFacture": 50,
-      "montantRemise": 60,
-      "client": {
-        "categorieClient": "Fidele",
-        "dateNaissance": "2021-12-13T20:48:05.606Z",
-        "email": "string",
-        "idClient": 1,
-        "nom": "string",
-        "password": "string",
-        "prenom": "string",
-        "profession": "Autre"
-      }
     }
   ],
   "clients": [
     {
-      "nom": "feriel",
-      "prenom": "ben rahal",
-      "email": "mouradbenrahal@esprit.tn",
+      "id": "1",
+      "categorie_client": "FIDELE",
       "date_naissance": "10/12/1998",
+      "email": "leila@esprit.tn",
+      "nom": "leila",
+      "prenom": "jbili",
+      "password": "leila123",
+      "role": "ADMIN",
       "profession": "AUTOR",
-      "categorie_client": "FIDELE",
-      "id": "1"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     },
     {
-      "id": "2",
-      "categorie_client": "FIDELE",
-      "date_naissance": "10/12/1998",
-      "email": "omar@esprit.tn",
-      "nom": "omar",
-      "prenom": "elloumi",
-      "password": "omar123",
-      "profession": "AUTOR"
-    },
-    {
-      "id": "3",
-      "categorie_client": "FIDELE",
-      "date_naissance": "10/12/1998",
-      "email": "mohaned@esprit.tn",
-      "nom": "mohaned",
-      "prenom": "ben mansour",
-      "password": "mohaned123",
-      "profession": "DOCTOR"
-    },
-    {
-      "id": "4",
-      "categorie_client": "FIDELE",
-      "date_naissance": "10/12/1998",
-      "email": "mouradbenrahal@esprit.tn",
       "nom": "mourad",
       "prenom": "ben rahal",
+      "email": "mouradbenrahal12@gmail.com",
+      "date_naissance": "12/10/1998",
+      "profession": "AUTOR",
       "password": "mourad123",
-      "profession": "AUTOR"
+      "categorie_client": "FIDELE",
+      "role": "USER",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      "id": "rYkxKuA"
     }
   ],
   "factures": [
