@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { MatPaginator } from '@angular/material/paginator';
@@ -21,6 +21,8 @@ export class UpdateProductComponent implements OnInit {
   pageTitle = 'new Product'
   faBuilding=faBuilding
   faPlusCircle=faPlusCircle
+  submitted: boolean = false;
+
   constructor(private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private productService: ProductService,
@@ -47,10 +49,10 @@ if(this.data){
 
   createForm() {
     this.productForm = this.formBuilder.group({
-      code: [''],
-      libelle:[''],
-      prixUnitaire:[''],
-      type:[""]
+      code: ['', Validators.required],
+      libelle:['', Validators.required],
+      prixUnitaire:['', Validators.required],
+      type:["", Validators.required]
     });
   }
 
@@ -60,6 +62,11 @@ if(this.data){
   }
 
   onSubmit(){
+    this.submitted = true;
+    if (this.productForm.invalid) {
+      this.productForm.setErrors({ ...this.productForm.errors, 'Error': true });
+      return;
+    }
 if(this.data){
 this.productService.updateProduct(this.productForm.value,this.data.id).subscribe(
   (data)=>{
