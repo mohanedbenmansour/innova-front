@@ -9,11 +9,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatMenuModule } from '@angular/material/menu';
 import { CartComponent } from './cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReclamationComponent } from './reclamation/reclamation.component';
 @NgModule({
   declarations: [
     FrontOfficeComponent,
     FrontNavbarComponent,
-    CartComponent
+    CartComponent,
+    ReclamationComponent
   ],
   imports: [
     FontAwesomeModule,

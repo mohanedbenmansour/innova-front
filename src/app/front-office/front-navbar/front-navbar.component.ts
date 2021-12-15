@@ -32,6 +32,10 @@ export class FrontNavbarComponent implements OnInit {
     this.router.navigateByUrl("/front-office/editProfil")
   }
 
+  goToReclamation() {
+    this.router.navigateByUrl("/front-office/reclamation")
+  }
+
   openPopUpCart() {
     const dialogRef = this.dialog.open(CartComponent,
       {

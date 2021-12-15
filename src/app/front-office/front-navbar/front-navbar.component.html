@@ -7,7 +7,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item"><a class="nav-link " aria-current="page" (click)="goToShop()" style="cursor: pointer;">Shop</a></li>
+              <li> <button class="btn btn-outline-dark" (click)="goToReclamation()">
+
+                Add Reclamation
+
+              </button></li>
             </ul>
+
             <button class="btn btn-outline-dark" (click)="openPopUpCart()">
                 <fa-icon class="me-2" [icon]="faShoppingCart"></fa-icon>
                 Cart
@@ -23,6 +29,7 @@
                     <fa-icon class="mb-2 px-2" [icon]="faUserEdit"></fa-icon>
                     <span>edit profile</span>
                 </button>
+
                 <button mat-menu-item (click)="logout()">Deconnexion</button>
             </mat-menu>
         </div>

@@ -10,7 +10,9 @@ const routes: Routes = [{
     { path: 'rayons', loadChildren: () => import('./rayon/rayon.module').then(m => m.RayonModule) },
     { path: 'clients', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
     { path: 'factures', loadChildren: () => import('./facture/facture.module').then(m => m.FactureModule) },
-    { path: 'stocks', loadChildren: () => import('./stock/stock.module').then(m => m.StockModule) }
+    { path: 'stocks', loadChildren: () => import('./stock/stock.module').then(m => m.StockModule) },
+    { path: 'reclamation', loadChildren: () => import('./reclamation-dashboard/reclamation-dashboard.module').then(m => m.ReclamationDashboardModule) }
+
   ]
 
 }]

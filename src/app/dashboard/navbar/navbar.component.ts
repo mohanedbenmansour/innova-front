@@ -32,6 +32,10 @@ export class NavbarComponent implements OnInit {
   gotToFacture() {
     this.router.navigateByUrl("/dashboard/factures")
   }
+  goToReclamation(){
+    this.router.navigateByUrl("/dashboard/reclamation")
+
+  }
 
   logout() {
     this.tokenStorage.signOut()
