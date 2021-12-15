@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [{
   path: '', component: DashboardComponent,
+
   children: [
     { path: 'products', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) },
     { path: 'rayons', loadChildren: () => import('./rayon/rayon.module').then(m => m.RayonModule) },
@@ -11,7 +12,6 @@ const routes: Routes = [{
     { path: 'factures', loadChildren: () => import('./facture/facture.module').then(m => m.FactureModule) },
     { path: 'stocks', loadChildren: () => import('./stock/stock.module').then(m => m.StockModule) }
   ]
-
 
 }]
 @NgModule({

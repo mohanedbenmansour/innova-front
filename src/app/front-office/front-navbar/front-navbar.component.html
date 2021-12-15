@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">INNOVA</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link " aria-current="page" (click)="goToShop()">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+            </ul>
+            <button class="btn btn-outline-dark" (click)="openPopUpCart()">
+                <fa-icon class="me-2" [icon]="faShoppingCart"></fa-icon>
+                Cart
+                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+            </button>
+
+            <button class="btn btn-outline-none mx-2" mat-button [matMenuTriggerFor]="menu">
+                <fa-icon class="mb-2 px-2" [icon]="faUsers"></fa-icon>
+                <span>{{user.nom |uppercase}}</span>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="goToEditProfile()">
+                    <fa-icon class="mb-2 px-2" [icon]="faUserEdit"></fa-icon>
+                    <span>edit profile</span>
+                </button>
+                <button mat-menu-item (click)="logout()">Deconnexion</button>
+            </mat-menu>
+        </div>
+    </div>
+</nav>

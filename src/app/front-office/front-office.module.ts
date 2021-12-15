@@ -3,15 +3,25 @@ import { CommonModule } from '@angular/common';
 
 import { FrontOfficeRoutingModule } from './front-office-routing.module';
 import { FrontOfficeComponent } from './front-office.component';
+import { FrontNavbarComponent } from './front-navbar/front-navbar.component';
 
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatMenuModule } from '@angular/material/menu';
+import { CartComponent } from './cart/cart.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
-    FrontOfficeComponent
+    FrontOfficeComponent,
+    FrontNavbarComponent,
+    CartComponent
   ],
   imports: [
+    FontAwesomeModule,
     CommonModule,
-    FrontOfficeRoutingModule
+    FrontOfficeRoutingModule,
+    MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FrontOfficeModule { }
