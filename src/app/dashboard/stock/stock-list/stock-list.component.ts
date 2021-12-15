@@ -1,9 +1,9 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild , ElementRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RayonService } from 'src/app/core/rayon.service';
-import { faUser, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft,faUsers,faTrashAlt, faPen,faChartLine, faAlignCenter } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft,faUsers,faTrashAlt, faPen,faChartLine, faAlignCenter, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
@@ -11,6 +11,7 @@ import { SwalService } from 'src/app/core/swal.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { StockService } from 'src/app/core/stock.service';
 import { UpdateStockComponent } from '../update-stock/update-stock.component';
+import jsPDF, { jsPDFAPI } from 'jspdf';
 
 @Component({
   selector: 'app-stock-list',
@@ -26,6 +27,7 @@ export class StockListComponent implements OnInit {
   faPen=faPen
   faChartLine=faChartLine
   faAlignCenter=faAlignCenter
+  faFilePdf=faFilePdf
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator ;
   @ViewChild(MatSort, { static: true }) sort!: MatSort ;
@@ -33,7 +35,10 @@ export class StockListComponent implements OnInit {
   displayedColumns: string[] = ['#','libelleStock','qte','qteMin','actions'];
   dataSource!: MatTableDataSource<any> ;
 
+  @ViewChild('content', {static: false}) el!: ElementRef;
+
   stockList: any
+  libelleStock: any
   constructor(private  stockService: StockService,
     private toastr: ToastrService,
     private dialogRef: MatDialogRef<StockListComponent>,
@@ -118,5 +123,37 @@ export class StockListComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
+
+  makePDF(){
+    let pdf = new jsPDF('p','pt','a4');
+    pdf.html(this.el.nativeElement,{
+      callback: (pdf)=> {
+        pdf.save("stocks.pdf");
+      }
+    });
+  }
+
+
+
+   searchStock(key: any) {
+    console.log(key);
+    const results: any[] = [];
+    for (const s of this.stockList) {
+      if (s.libelleStock.toLowerCase().indexOf(key.toLowerCase()) !== -1) 
+      {
+        results.push(s);
+      }
+    }
+    this.stockList = results;
+    console.log(this.stockList);
+
+    this.dataSource = new MatTableDataSource<any>(this.stockList);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    if ( !key) {
+      this.getStocks();
+    }
+  }
+    
 
 }

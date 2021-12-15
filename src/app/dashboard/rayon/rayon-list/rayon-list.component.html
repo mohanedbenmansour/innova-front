@@ -5,6 +5,12 @@
             Rayon
         </h2>
         <div>
+            <form class="form-inline my-2 my-lg-0">
+                <input matInput style="margin: auto;" type="search" (ngModelChange)="Searchrayon(key.value)" #key="ngModel" ngModel 
+                 name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Rayon..." required >
+              </form>
+        </div>
+        <div>
             <button  mat-raised-button color="accent" >
                 <fa-icon class="me-2" [icon]="faChartLine"></fa-icon>
                 charts
@@ -14,6 +20,7 @@
                 add Rayon
             </button>
         </div>
+       
     </div>
 </div>
 

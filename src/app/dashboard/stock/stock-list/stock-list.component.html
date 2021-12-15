@@ -5,13 +5,24 @@
             Stock
         </h2>
         <div>
-            <button  mat-raised-button color="accent" >
+            <form class="form-inline my-2 my-lg-0">
+                <input style="margin: auto;" type="search" (ngModelChange)="searchStock (key.value)" #key="ngModel" ngModel 
+                 name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Stock..." required >
+              </form>
+        </div>
+        <div class="p-2">
+             
+            <button  mat-raised-button color="accent" class="m-2">
                 <fa-icon class="me-2" [icon]="faChartLine"></fa-icon>
                 charts
             </button>
             <button  mat-raised-button color="accent" (click)="openDialogCreateStock()">
                 <fa-icon class="me-2" [icon]="faPlusCircle"></fa-icon>
                 add Stock
+            </button>
+            <button  mat-icon-button color="accent" (click)="makePDF()">
+                <fa-icon class="me-2" [icon]="faFilePdf"></fa-icon>
+                
             </button>
         </div>
      
@@ -20,7 +31,7 @@
 
 
 
-<div class="card rounded">
+<div class="card rounded" #content>
     <div class="card-body my-2 py-25">
         <div class="row mt-3">
             <div class="col-12">

@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { MatPaginator } from '@angular/material/paginator';
@@ -21,10 +21,21 @@ import { SwalService } from 'src/app/core/swal.service';
 })
 export class UpdateStockComponent implements OnInit {
 
-  stockForm!: FormGroup ;
-  pageTitle = 'new Rayon'
+ // stockForm!: FormGroup ;
+  stockForm = new FormGroup({
+    libelleStock: new FormControl('',[Validators.required]) 
+  });
+  f=this.fb.group({
+    libelle:  ['',[Validators.required]]
+  });
+
+
+  pageTitle = 'new Stock'
   faBuilding=faBuilding
   faPlusCircle=faPlusCircle
+
+  libelle = new FormControl('',[Validators.required,Validators.minLength(2)]);
+
   constructor(private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private stockService: StockService,
@@ -33,7 +44,8 @@ export class UpdateStockComponent implements OnInit {
     private swalService: SwalService,
     private dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    @Inject(MAT_DIALOG_DATA) private data: any
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -80,6 +92,10 @@ export class UpdateStockComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
+  }
+
+  getlibelleStock(){
+    return this.stockForm.get('libelleStock');
   }
 
 }

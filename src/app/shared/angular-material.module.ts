@@ -37,6 +37,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 @NgModule({
   imports: [
     MatAutocompleteModule,
@@ -72,7 +73,8 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    DragDropModule
   ],
   exports: [
     MatAutocompleteModule,
@@ -109,7 +111,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
     MatTooltipModule,
     MatTreeModule,
     MatNativeDateModule,
-
+    DragDropModule
 
   ],
   providers: [
