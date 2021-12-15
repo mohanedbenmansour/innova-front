@@ -5,11 +5,22 @@
             Client
         </h2>
         <div>
-            <button mat-raised-button color="accent">
+            <form class="form-inline my-2 my-lg-0">
+                <input matInput style="margin: auto;" type="search" (ngModelChange)="SearchClient(key.value)"
+                    #key="ngModel" ngModel name="key" id="searchName" class="form-control border rmr-sm-2"
+                    placeholder="search client ... " required>
+            </form>
+        </div>
+        <div>
+            <button class="mx-2" mat-icon-button color="accent" (click)="makePDF()">
+                <b>PDF </b>
+                <fa-icon class="me-2" [icon]="faFilePdf"></fa-icon>
+            </button>
+            <button class="mx-2" mat-raised-button color="accent">
                 <fa-icon class="me-2" [icon]="faChartLine"></fa-icon>
                 charts
             </button>
-            <button mat-raised-button color="accent" (click)="openDialogCreateClient()">
+            <button class="mx-2" mat-raised-button color="accent" (click)="openDialogCreateClient()">
                 <fa-icon class="me-2" [icon]="faPlusCircle"></fa-icon>
                 add Client
             </button>
@@ -21,14 +32,13 @@
     <div class="card-body my-2 py-25">
         <div class="row mt-3">
             <div class="col-12">
-                <div class="table-responsive">
+                <div #content class="table-responsive">
                     <table mat-table [dataSource]="dataSource" matSort #sort="matSort">
                         <!-- Position Column -->
                         <ng-container matColumnDef="#">
                             <th mat-header-cell *matHeaderCellDef> Number </th>
                             <td mat-cell *matCellDef="let element;let index=index"> {{index}} </td>
                         </ng-container>
-
                         <!-- Name Column -->
                         <ng-container matColumnDef="nom">
                             <th mat-header-cell *matHeaderCellDef> Nom </th>
@@ -72,7 +82,6 @@
                     </table>
 
                     <mat-paginator #paginator [hidePageSize]="true" [pageSizeOptions]="[3]" showFirstLastButtons>
-
                     </mat-paginator>
                 </div>
             </div>

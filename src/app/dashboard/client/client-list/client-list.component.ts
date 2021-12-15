@@ -1,11 +1,12 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft, faAlignCenter, faUsers, faTrashAlt, faPen, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft, faAlignCenter, faUsers, faTrashAlt, faPen, faChartLine, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import jsPDF from 'jspdf';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ClientService } from 'src/app/core/client.service';
@@ -27,10 +28,11 @@ export class ClientListComponent implements OnInit {
   faPen = faPen
   faChartLine = faChartLine
   faAlignCenter = faAlignCenter;
+  faFilePdf = faFilePdf
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
-
+  @ViewChild('content', { static: false }) el!: ElementRef;
   displayedColumns: string[] = ['#', 'nom', 'prenom', 'email', 'date_naissance', 'profession', 'categorie_client', 'actions'];
   dataSource!: MatTableDataSource<any>;
   constructor(private toastr: ToastrService,
@@ -48,11 +50,9 @@ export class ClientListComponent implements OnInit {
     this.getClients();
   }
 
-
   getClients() {
     this.clientService.getClients().subscribe(
       (data) => {
-        console.log(data, 'clients')
         this.clientList = data;
         this.dataSource = new MatTableDataSource<any>(this.clientList);
         this.dataSource.paginator = this.paginator;
@@ -135,6 +135,32 @@ export class ClientListComponent implements OnInit {
       this.dataSource = new MatTableDataSource<any>(this.clientList);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+    });
+  }
+
+  public SearchClient(key: any): void {
+    const results: any[] = [];
+    for (const s of this.clientList) {
+      if (s.nom.toLowerCase().indexOf(key.toLowerCase()) !== -1 || s.prenom.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || s.email.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(s);
+      }
+    }
+    this.clientList = results;
+    this.dataSource = new MatTableDataSource<any>(this.clientList);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    if (!key) {
+      this.getClients();
+    }
+  }
+
+  makePDF() {
+    let pdf = new jsPDF('p', 'pt', 'a2');
+    pdf.html(this.el.nativeElement, {
+      callback: (pdf) => {
+        pdf.save("clients.pdf");
+      }
     });
   }
 
