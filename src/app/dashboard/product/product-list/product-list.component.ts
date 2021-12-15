@@ -33,7 +33,7 @@ export class ProductListComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-  displayedColumns: string[] = ['#', 'code', 'libelle', 'prixUnitaire', 'actions'];
+  displayedColumns: string[] = ['#', 'code', 'libelle', 'prixUnitaire','type', 'actions'];
   dataSource!: MatTableDataSource<any>;
 
   constructor(private toastr: ToastrService,
@@ -164,6 +164,26 @@ export class ProductListComponent implements OnInit {
   }
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
+  }
+
+   SearchProduct(key: any): void {
+    console.log(key);
+    const results: any[] = [];
+    for (const s of this.productList) {
+      if (s.libelle.toLowerCase().indexOf(key.toLowerCase()) !== -1) 
+      {
+        results.push(s);
+      }
+    }
+    this.productList = results;
+    console.log(this.productList);
+
+    this.dataSource = new MatTableDataSource<any>(this.productList);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    if ( !key) {
+      this.getProductList();
+    }
   }
 
 }

@@ -116,20 +116,6 @@
       }
     }
   ],
-  "stocks": [
-    {
-      "id": 2,
-      "libelleStock": "pates",
-      "qte": 100,
-      "qteMin": 50
-    },
-    {
-      "id": 3,
-      "libelleStock": "rrrr",
-      "qte": 100,
-      "qteMin": 50
-    }
-  ],
   "clients": [
     {
       "id": "1",
@@ -181,47 +167,6 @@
         "prenom": "string",
         "profession": "Autre"
       }
-    }
-  ],
-  "clients": [
-    {
-      "nom": "feriel",
-      "prenom": "ben rahal",
-      "email": "mouradbenrahal@esprit.tn",
-      "date_naissance": "10/12/1998",
-      "profession": "AUTOR",
-      "categorie_client": "FIDELE",
-      "id": "1"
-    },
-    {
-      "id": "2",
-      "categorie_client": "FIDELE",
-      "date_naissance": "10/12/1998",
-      "email": "omar@esprit.tn",
-      "nom": "omar",
-      "prenom": "elloumi",
-      "password": "omar123",
-      "profession": "AUTOR"
-    },
-    {
-      "id": "3",
-      "categorie_client": "FIDELE",
-      "date_naissance": "10/12/1998",
-      "email": "mohaned@esprit.tn",
-      "nom": "mohaned",
-      "prenom": "ben mansour",
-      "password": "mohaned123",
-      "profession": "DOCTOR"
-    },
-    {
-      "id": "4",
-      "categorie_client": "FIDELE",
-      "date_naissance": "10/12/1998",
-      "email": "mouradbenrahal@esprit.tn",
-      "nom": "mourad",
-      "prenom": "ben rahal",
-      "password": "mourad123",
-      "profession": "AUTOR"
     }
   ],
   "factures": [
