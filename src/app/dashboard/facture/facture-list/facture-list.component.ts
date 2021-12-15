@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -6,7 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { faUser, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft,faUsers,faTrashAlt, faPen,faChartLine ,faFilePdf,faEye} from '@fortawesome/free-solid-svg-icons';
+import { faUser, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft, faUsers, faTrashAlt, faPen, faChartLine, faFilePdf, faEye } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { SwalService } from 'src/app/core/swal.service';
@@ -14,7 +14,7 @@ import { FactureService } from 'src/app/core/facture.service';
 import { FactureUpdateComponent } from '../facture-update/facture-update.component';
 
 import jsPDF, { jsPDFAPI } from 'jspdf';
-import {FactureDetailComponent} from "../facture-detail/facture-detail.component";
+import { FactureDetailComponent } from "../facture-detail/facture-detail.component";
 
 @Component({
   selector: 'app-facture-list',
@@ -24,38 +24,38 @@ import {FactureDetailComponent} from "../facture-detail/facture-detail.component
 export class FactureListComponent implements OnInit {
 
 
-  searchedKeyword: string="";
+  searchedKeyword: string = "";
   listUsers: any = [];
   selectedUser: any;
   faAngleDoubleLeft = faAngleDoubleLeft;
   faPlusCircle = faPlusCircle;
   faUsers = faUsers;
-  faTrashAlt=faTrashAlt
-  faPen=faPen
-  faChartLine=faChartLine
-  faFilePdf=faFilePdf
-  factureList:any
-  faEye=faEye
+  faTrashAlt = faTrashAlt
+  faPen = faPen
+  faChartLine = faChartLine
+  faFilePdf = faFilePdf
+  factureList: any
+  faEye = faEye
 
-  @ViewChild('content', {static: false}) el!: ElementRef;
-  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator ;
-  @ViewChild(MatSort, { static: true }) sort!: MatSort ;
+  @ViewChild('content', { static: false }) el!: ElementRef;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-  displayedColumns: string[] = ['#','code','active','date_facture', 'montant_facture','client','actions'];
-  dataSource!: MatTableDataSource<any> ;
+  displayedColumns: string[] = ['#', 'code', 'active', 'date_facture', 'montant_facture', 'client', 'actions'];
+  dataSource!: MatTableDataSource<any>;
 
 
   constructor(private toastr: ToastrService,
-              private formBuilder: FormBuilder,
-              private factureService: FactureService,
-              private dialogRef: MatDialogRef<FactureListComponent>,
-              private ngxLoader: NgxUiLoaderService,
-              private swalService: SwalService,
-              private dialog: MatDialog,
-              private _snackBar: MatSnackBar,
+    private formBuilder: FormBuilder,
+    private factureService: FactureService,
+    private dialogRef: MatDialogRef<FactureListComponent>,
+    private ngxLoader: NgxUiLoaderService,
+    private swalService: SwalService,
+    private dialog: MatDialog,
+    private _snackBar: MatSnackBar,
 
 
-              @Inject(MAT_DIALOG_DATA) private data: any
+    @Inject(MAT_DIALOG_DATA) private data: any
   ) { }
 
   ngOnInit(): void {
@@ -63,7 +63,7 @@ export class FactureListComponent implements OnInit {
   }
 
 
-  openDialogCreateFacture(){
+  openDialogCreateFacture() {
 
     const dialogRef = this.dialog.open(FactureUpdateComponent,
       {
@@ -77,13 +77,13 @@ export class FactureListComponent implements OnInit {
       if (!res)
         return
       this.factureList.push(res)
-      this.dataSource = new MatTableDataSource<any>(this.factureList );
+      this.dataSource = new MatTableDataSource<any>(this.factureList);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
 
-  openDialogDetailFacture(facture:any){
+  openDialogDetailFacture(facture: any) {
     const dialogRef = this.dialog.open(FactureDetailComponent,
       {
         width: '80%',
@@ -95,13 +95,13 @@ export class FactureListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res: any) => {
       if (!res)
         return
-      let factureIndex=this.factureList.findIndex((facture:any)=>{
-        return facture.id==res.id
+      let factureIndex = this.factureList.findIndex((facture: any) => {
+        return facture.id == res.id
       })
 
-      this.factureList[factureIndex]=res
+      this.factureList[factureIndex] = res
 
-      this.dataSource = new MatTableDataSource<any>(this.factureList );
+      this.dataSource = new MatTableDataSource<any>(this.factureList);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
 
@@ -112,10 +112,10 @@ export class FactureListComponent implements OnInit {
     this.factureService.getFactures().subscribe(
       (factures: any) => {
 
-        this.factureList = factures ;
-        console.log("+++",this.factureList)
+        this.factureList = factures;
+        console.log("+++", this.factureList)
 
-        this.dataSource = new MatTableDataSource<any>(this.factureList );
+        this.dataSource = new MatTableDataSource<any>(this.factureList);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.ngxLoader.stopLoader('loader');
@@ -129,7 +129,7 @@ export class FactureListComponent implements OnInit {
       });
   }
 
-  openDialogEditFacrure(facture:any){
+  openDialogEditFacrure(facture: any) {
     const dialogRef = this.dialog.open(FactureUpdateComponent,
       {
         width: '80%',
@@ -141,55 +141,54 @@ export class FactureListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res: any) => {
       if (!res)
         return
-      let factureIndex=this.factureList.findIndex((facture:any)=>{
-        return facture.id==res.id
+      let factureIndex = this.factureList.findIndex((facture: any) => {
+        return facture.id == res.id
       })
 
-      this.factureList[factureIndex]=res
+      this.factureList[factureIndex] = res
 
-      this.dataSource = new MatTableDataSource<any>(this.factureList );
+      this.dataSource = new MatTableDataSource<any>(this.factureList);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
 
     });
   }
 
-  onDelete(factureId:string){
-
+  onDelete(factureId: string) {
     this.swalService.confirmAlert(
       'Delete Invoice',
       'Are you sure you want to delete this invoice ?',
       'Delete'
     ).then((result: any) => {
       if (result.value) {
-
-
         this.factureService.deleteFacture(factureId).subscribe(
-          (data)=>{
-            this.openSnackBar("Invoice deleted",'success')
+          (data) => {
+            this.openSnackBar("Invoice deleted", 'success')
 
-            this.factureList=this.factureList.filter((facture:any)=>{
-              return facture.id!=factureId
+            this.factureList = this.factureList.filter((facture: any) => {
+              return facture.id != factureId
             })
-            this.dataSource = new MatTableDataSource<any>(this.factureList );
+            this.dataSource = new MatTableDataSource<any>(this.factureList);
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
 
-          },(err)=>{
+          }, (err) => {
             console.log('error', err)
-            this.openSnackBar("server error",'error')
+            this.openSnackBar("server error", 'error')
 
           }
-        )}})
+        )
+      }
+    })
   }
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
 
-  makePDF(){
-    let pdf = new jsPDF('p','pt','a2');
-    pdf.html(this.el.nativeElement,{
-      callback: (pdf)=> {
+  makePDF() {
+    let pdf = new jsPDF('p', 'pt', 'a2');
+    pdf.html(this.el.nativeElement, {
+      callback: (pdf) => {
         pdf.save("factures.pdf");
       }
     });
@@ -197,15 +196,14 @@ export class FactureListComponent implements OnInit {
 
 
 
-}
+  }
 
   public Searchfacture(key: any): void {
     console.log(key);
     const results: any[] = [];
     for (const s of this.factureList) {
-      if (s.client.nom.toLowerCase().indexOf(key.toLowerCase()) !== -1  || s.client.prenom.toLowerCase().indexOf(key.toLowerCase()) !== -1 || s.montantFacture.toLowerCase().indexOf(key.toLowerCase()) !== -1
-        || s.dateFacture.toLowerCase().indexOf(key.toLowerCase()) !== -1 || s.code.toLowerCase().indexOf(key.toLowerCase()) !== -1)
-      {
+      if (s.client.nom.toLowerCase().indexOf(key.toLowerCase()) !== -1 || s.client.prenom.toLowerCase().indexOf(key.toLowerCase()) !== -1 || s.montantFacture.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || s.dateFacture.toLowerCase().indexOf(key.toLowerCase()) !== -1 || s.code.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
         results.push(s);
       }
     }
@@ -215,35 +213,35 @@ export class FactureListComponent implements OnInit {
     this.dataSource = new MatTableDataSource<any>(this.factureList);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    if ( !key) {
+    if (!key) {
       this.getFactureList();
     }
   }
 
-  stateFacture(element:any){
-if(element.active){
-  element.active=false
-}else {
-  element.active=true
-}
+  stateFacture(element: any) {
+    if (element.active) {
+      element.active = false
+    } else {
+      element.active = true
+    }
 
-    this.factureService.updateFacture(element,element.id).subscribe(
-      (data)=>{
-        this.openSnackBar("facture updated",'success')
+    this.factureService.updateFacture(element, element.id).subscribe(
+      (data) => {
+        this.openSnackBar("facture updated", 'success')
 
-        let factureIndex=this.factureList.findIndex((facture:any)=>{
-          return facture.id==data.id
+        let factureIndex = this.factureList.findIndex((facture: any) => {
+          return facture.id == data.id
         })
 
-        this.factureList[factureIndex]=data
+        this.factureList[factureIndex] = data
 
-        this.dataSource = new MatTableDataSource<any>(this.factureList );
+        this.dataSource = new MatTableDataSource<any>(this.factureList);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
-      (err)=>console.log(err)
+      (err) => console.log(err)
     )
-    this.dataSource = new MatTableDataSource<any>(this.factureList );
+    this.dataSource = new MatTableDataSource<any>(this.factureList);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }

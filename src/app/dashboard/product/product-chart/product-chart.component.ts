@@ -11,7 +11,6 @@ export class ProductChartComponent implements OnInit {
   products: any
   ngOnInit(): void {
     this.products = this.data
-
     let number: number[] = [0, 0, 0, 0]
     this.products.forEach((product: any) => {
       switch (product.type) {
@@ -54,7 +53,6 @@ export class ProductChartComponent implements OnInit {
             'rgba(255, 99, 132, 1)',
             'rgba(54, 162, 235, 1)',
             'rgba(255, 206, 86, 1)',
-
           ],
           borderWidth: 1
         }]

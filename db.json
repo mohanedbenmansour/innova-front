@@ -58,32 +58,6 @@
     }
   ],
   "carts": [],
-  "clients": [
-    {
-      "id": "1",
-      "categorie_client": "FIDELE",
-      "date_naissance": "10/12/1998",
-      "email": "leila@esprit.tn",
-      "nom": "leila",
-      "prenom": "jbili",
-      "password": "leila123",
-      "role": "ADMIN",
-      "profession": "AUTOR",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-    },
-    {
-      "nom": "mourad",
-      "prenom": "ben rahal",
-      "email": "mouradbenrahal12@gmail.com",
-      "date_naissance": "12/10/1998",
-      "profession": "AUTOR",
-      "password": "mourad123",
-      "categorie_client": "FIDELE",
-      "role": "USER",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-      "id": "rYkxKuA"
-    }
-  ],
   "stocks": [
     {
       "id": 2,
@@ -109,6 +83,31 @@
         "prenom": "string",
         "profession": "Autre"
       }
+    }
+  ],
+  "clients": [
+    {
+      "nom": "mourad",
+      "prenom": "jbili",
+      "email": "leila@esprit.tn",
+      "date_naissance": "10/12/1998",
+      "profession": "AUTOR",
+      "password": "leila123",
+      "categorie_client": "FIDELE",
+      "role": "ADMIN",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      "id": "1"
+    },
+    {
+      "nom": "feriel",
+      "prenom": "ben rahal",
+      "email": "mouradbenrahal12@gmail.com",
+      "date_naissance": "12/10/1998",
+      "profession": "AUTOR",
+      "categorie_client": "FIDELE",
+      "role": "USER",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      "id": "rYkxKuA"
     }
   ],
   "factures": [

@@ -51,7 +51,6 @@ export class StockListComponent implements OnInit {
       (data) => {
         console.log("data", data)
         this.stockList = data;
-
         this.dataSource = new MatTableDataSource<any>(this.stockList);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
