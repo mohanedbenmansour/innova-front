@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
 import { TokenStorageService } from 'src/app/core/token-storage.service';
@@ -17,7 +18,10 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   role: string[] = [];
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router,
+    private _snackBar: MatSnackBar,
+
+    ) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -42,6 +46,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(["/front-office"])
           }
         } else {
+          this.openSnackBar("check username and password",'login failed ')
           this.isLoginFailed = false;
           this.isLoggedIn = false;
         }
@@ -52,5 +57,8 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 }
