@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/core/auth.service';
 import { CartService } from 'src/app/core/cart.service';
+import {FactureService} from "../../core/facture.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatDialogRef} from "@angular/material/dialog";
 var _ = require('lodash');
 
 @Component({
@@ -15,13 +18,14 @@ cartItems:any
 faTrashAlt=faTrashAlt
 total:number=0;
 productQuantities:number[]=[]
-  constructor(private cartService:CartService,private authService:AuthService) { }
+  constructor(private dialogRef: MatDialogRef<CartComponent>,private _snackBar: MatSnackBar,private cartService:CartService,private authService:AuthService,private factureService:FactureService) { }
 
   ngOnInit(): void {
-    
+
     this.getCurrentUser()
     this.getCartItems()
-    
+
+
   }
 
   getCartItems(){
@@ -36,11 +40,11 @@ productQuantities:number[]=[]
        });
 
         console.log(  "carts",  this.cartItems)
-        this.cartItems = _.uniq(data, 'user'); 
+        this.cartItems = _.uniq(data, 'user');
         this.cartItems.map((element:any) => {
           element.quantity=1
         });
-        
+
       }
     )
   }
@@ -53,27 +57,49 @@ console.log(this.currentUser)
   incrementTotal(index:number,produit:any){
     this.total=0
     this.cartItems.forEach((item:any) => {
-      
+
       this.total+=parseInt(item.prixUnitaire)*item.quantity
     });
   }
 
+  ranCode(length:any) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() *
+        charactersLength));
+    }
+    return result;
+  }
+
+
   goToCheckout(){
     let detailFacture:any[]=[]
-    let facture:any
+    let facture:any={}
     this.cartItems.forEach((item:any) => {
-      detailFacture.push({product:{
+      detailFacture.push({produit:{
         libelle:item.libelle,
         code: item.code,
-      prixUnitaire:item.prixUnitaire,
-      },quantity:item.quantity,price:item.prixUnitaire})
+      },qte:item.quantity,prix:item.prixUnitaire})
     });
-    facture.detailFacture=detailFacture
-    facture.total=this.total
+    facture.detailFactures=detailFacture
+    facture.montantFacture=this.total
     facture.client=this.currentUser
+    facture.code=this.ranCode(6);
+    facture.active=true
+    facture.dateFacture=new Date()
+    this.factureService.addFacture(facture).subscribe(
+      (date)=>{
+        this.openSnackBar("Your checkout has been submitted", 'success')
+        this.dialogRef.close();
+      }
+    )
     console.log("detailfacture",detailFacture)
     console.log("total",this.total)
 
   }
-
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
 }
