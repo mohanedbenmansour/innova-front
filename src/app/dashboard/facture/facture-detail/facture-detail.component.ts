@@ -42,6 +42,7 @@ export class FactureDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log("facture",this.data)
     this.facture=this.data
   }
 

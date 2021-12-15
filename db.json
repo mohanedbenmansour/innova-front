@@ -196,6 +196,49 @@
         "prenom": "string",
         "profession": "Autre"
       }
+    },
+    {
+      "detailFactures": [
+        {
+          "produit": {
+            "libelle": "loujein",
+            "code": 222
+          },
+          "qte": 1,
+          "prix": "200"
+        },
+        {
+          "produit": {
+            "libelle": "feriel",
+            "code": 555
+          },
+          "qte": 1,
+          "prix": 150
+        },
+        {
+          "produit": {
+            "libelle": "tshirt",
+            "code": 444
+          },
+          "qte": 1,
+          "prix": 150
+        }
+      ],
+      "montantFacture": 0,
+      "client": {
+        "id": "4",
+        "categorie_client": "FIDELE",
+        "date_naissance": "10/12/1998",
+        "email": "mouradbenrahal@esprit.tn",
+        "nom": "mourad",
+        "prenom": "ben rahal",
+        "password": "mourad123",
+        "profession": "AUTOR"
+      },
+      "code": "dJVgqY",
+      "active": true,
+      "dateFacture": "2021-12-15T04:32:12.694Z",
+      "id": 4
     }
   ]
 }
