@@ -24,6 +24,10 @@ export class AuthService {
     console.log(users, 'users')
     return users;
   }
+  getCurrentUser(){
+     //@ts-ignore
+    return JSON.parse(sessionStorage.getItem("auth-user"))
+  }
 
   register(nom: string, prenom: string, email: string, date_naissance: string, profession: string, password: string): Observable<any> {
     return this.http.post(`${api}/clients/`, {

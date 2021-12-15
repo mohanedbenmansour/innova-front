@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { faUser, faAnchor, faAngleDoubleLeft, faPlusCircle, faArrowCircleLeft, faUsers, faTrashAlt, faPen, faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { AuthService } from 'src/app/core/auth.service';
 import { CartService } from 'src/app/core/cart.service';
 import { ProductService } from 'src/app/core/product.service';
 import { SwalService } from 'src/app/core/swal.service';
@@ -20,6 +21,7 @@ import { SwalService } from 'src/app/core/swal.service';
 })
 export class ListProductsComponent implements OnInit {
   productList:any
+  currentUser:any
   private config = [
     {
       transform: { x: 0, y: 0, z: 0 },
@@ -84,10 +86,12 @@ export class ListProductsComponent implements OnInit {
     private swalService: SwalService,
     private dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    private cartService:CartService
+    private cartService:CartService,
+    private authService:AuthService
     ) { }
 
   ngOnInit(): void {
+    this.getCurrentUser()
     this.getProductList()
   }
 
@@ -149,7 +153,7 @@ product.type="/assets/"+product.type+".jpg"
       });
   }
   addProductToCart(product:any){
-
+product.client=this.currentUser
     this.cartService.addCart(product).subscribe(
       (data)=>{
         console.log(data)
@@ -160,6 +164,11 @@ product.type="/assets/"+product.type+".jpg"
     )
 
   }
+  getCurrentUser(){
+    this.currentUser=this.authService.getCurrentUser()
+    console.log(this.currentUser)
+      }
+    
 
 }
 

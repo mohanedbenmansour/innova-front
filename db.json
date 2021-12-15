@@ -63,7 +63,19 @@
       "libelle": "loujein",
       "prixUnitaire": "200",
       "type": "/assets/tshirt.jpg",
-      "id": 2
+      "id": 2,
+      "client": {
+        "nom": "mourad",
+        "prenom": "ben rahal",
+        "email": "mouradbenrahal12@gmail.com",
+        "date_naissance": "12/10/1998",
+        "profession": "AUTOR",
+        "password": "mourad123",
+        "categorie_client": "FIDELE",
+        "role": "USER",
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+        "id": "rYkxKuA"
+      }
     }
   ],
   "stocks": [
