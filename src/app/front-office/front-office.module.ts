@@ -21,7 +21,9 @@ import { CartComponent } from './cart/cart.component';
   imports: [
     FontAwesomeModule,
     CommonModule,
-    FrontOfficeRoutingModule
+    FrontOfficeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FrontOfficeModule { }
