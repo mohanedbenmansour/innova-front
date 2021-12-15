@@ -48,6 +48,7 @@ export class ClientListComponent implements OnInit {
     this.getClients();
   }
 
+
   getClients() {
     this.clientService.getClients().subscribe(
       (data) => {
@@ -63,21 +64,38 @@ export class ClientListComponent implements OnInit {
     )
   }
 
-  deleteClient(id: string) {
-    this.clientService.deleteClient(id).subscribe(
-      (data) => {
-        this.clientList = this.clientList.filter((client: any) => {
-          return client.id != id
-        })
-        this.dataSource = new MatTableDataSource<any>(this.clientList);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      },
-      (err) => {
 
+  //delete ClientById
+  deleteClient(id: string) {
+    this.swalService.confirmAlert(
+      'Delete Product',
+      'Are you sure you want to delete this product ?',
+      'Delete'
+    ).then((result: any) => {
+      if (result.value) {
+        this.clientService.deleteClient(id).subscribe(
+          (data) => {
+            this.clientList = this.clientList.filter((client: any) => {
+              return client.id != id
+            })
+            this.dataSource = new MatTableDataSource<any>(this.clientList);
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
+          },
+          (err) => {
+            console.log('error', err)
+            this.openSnackBar("server error", 'error')
+          }
+        )
       }
-    )
+    })
   }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
+  //Add Client
 
   openDialogCreateClient() {
     const dialogRef = this.dialog.open(UpdateClientComponent,
@@ -86,6 +104,7 @@ export class ClientListComponent implements OnInit {
         height: '60%',
 
       });
+
 
     dialogRef.disableClose = false;
     dialogRef.afterClosed().subscribe((res: any) => {
@@ -98,6 +117,7 @@ export class ClientListComponent implements OnInit {
 
     });
   }
+
 
   openDialogEditClient(element: any, index: number) {
     const dialogRef = this.dialog.open(UpdateClientComponent,
@@ -117,4 +137,5 @@ export class ClientListComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
+
 }

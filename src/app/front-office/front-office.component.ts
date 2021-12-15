@@ -11,5 +11,6 @@ export class FrontOfficeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
 }

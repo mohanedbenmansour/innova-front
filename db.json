@@ -2,54 +2,158 @@
   "products": [
     {
       "code": 222,
-      "libelle": "omar",
+      "libelle": "loujein",
       "prixUnitaire": "200",
+      "type": "tshirt",
       "id": 2
     },
     {
       "id": 4,
       "code": 444,
       "libelle": "tshirt",
+      "type": "tshirt",
+      "prixUnitaire": 150
+    },
+    {
+      "id": 13,
+      "code": 444,
+      "libelle": "tshirt",
+      "type": "tanktop",
+      "prixUnitaire": 150
+    },
+    {
+      "id": 14,
+      "code": 444,
+      "libelle": "tshirt",
+      "type": "hoody",
       "prixUnitaire": 150
     },
     {
       "code": 555,
       "libelle": "feriel",
       "prixUnitaire": 150,
+      "type": "tanktop",
       "id": 5
     },
     {
       "code": "etre",
-      "libelle": "est",
+      "libelle": "ca",
+      "type": "tshirt",
       "prixUnitaire": "rere",
       "id": 7
+    },
+    {
+      "code": "etre",
+      "libelle": "ca",
+      "type": "hoody",
+      "prixUnitaire": "rere",
+      "id": 8
+    },
+    {
+      "code": "etre",
+      "libelle": "ca",
+      "type": "jacket",
+      "prixUnitaire": "rere",
+      "id": 9
     }
   ],
-  "rayons": [
+  "carts": [
     {
       "code": 222,
-      "libelle": "mourad",
-      "id": 7
+      "libelle": "loujein",
+      "prixUnitaire": "200",
+      "type": "/assets/tshirt.jpg",
+      "id": 2,
+      "client": {
+        "nom": "mourad",
+        "prenom": "ben rahal",
+        "email": "mouradbenrahal12@gmail.com",
+        "date_naissance": "12/10/1998",
+        "profession": "AUTOR",
+        "password": "mourad123",
+        "categorie_client": "FIDELE",
+        "role": "USER",
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+        "id": "rYkxKuA"
+      }
     },
     {
       "code": 555,
       "libelle": "feriel",
-      "id": 9
+      "prixUnitaire": 150,
+      "type": "/assets/tanktop.jpg",
+      "id": 5,
+      "client": {
+        "nom": "mourad",
+        "prenom": "ben rahal",
+        "email": "mouradbenrahal12@gmail.com",
+        "date_naissance": "12/10/1998",
+        "profession": "AUTOR",
+        "password": "mourad123",
+        "categorie_client": "FIDELE",
+        "role": "USER",
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+        "id": "rYkxKuA"
+      }
     },
     {
-      "id": 10,
-      "code": "etre",
-      "libelle": "est"
+      "id": 4,
+      "code": 444,
+      "libelle": "tshirt",
+      "type": "/assets/tshirt.jpg",
+      "prixUnitaire": 150,
+      "client": {
+        "nom": "mourad",
+        "prenom": "ben rahal",
+        "email": "mouradbenrahal12@gmail.com",
+        "date_naissance": "12/10/1998",
+        "profession": "AUTOR",
+        "password": "mourad123",
+        "categorie_client": "FIDELE",
+        "role": "USER",
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+        "id": "rYkxKuA"
+      }
+    }
+  ],
+  "stocks": [
+    {
+      "id": 2,
+      "libelleStock": "pates",
+      "qte": 100,
+      "qteMin": 50
     },
     {
-      "id": 11,
-      "code": "etre",
-      "libelle": "est"
+      "id": 3,
+      "libelleStock": "rrrr",
+      "qte": 100,
+      "qteMin": 50
+    }
+  ],
+  "clients": [
+    {
+      "id": "1",
+      "categorie_client": "FIDELE",
+      "date_naissance": "10/12/1998",
+      "email": "leila@esprit.tn",
+      "nom": "leila",
+      "prenom": "jbili",
+      "password": "leila123",
+      "role": "ADMIN",
+      "profession": "AUTOR",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     },
     {
-      "id": 12,
-      "code": "etre",
-      "libelle": "est"
+      "nom": "mourad",
+      "prenom": "ben rahal",
+      "email": "mouradbenrahal12@gmail.com",
+      "date_naissance": "12/10/1998",
+      "profession": "AUTOR",
+      "password": "mourad123",
+      "categorie_client": "FIDELE",
+      "role": "USER",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      "id": "rYkxKuA"
     }
   ],
   "stocks": [
