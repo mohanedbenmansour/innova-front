@@ -5,21 +5,30 @@
       Factures
     </h2>
     <div>
+      <form class="form-inline my-2 my-lg-0">
+        <input matInput style="margin: auto;" type="search" (ngModelChange)="Searchfacture(key.value)" #key="ngModel" ngModel
+               name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Facture..." required >
+      </form>
+    </div>
+    <div>
 
-      <button  mat-raised-button color="accent" (click)="openDialogCreateFacture()">
-        <fa-icon class="me-2" [icon]="faPlusCircle"></fa-icon>
-        Add Facture
+
+      <button  mat-icon-button color="accent" (click)="makePDF()">
+        <b>PDF     </b>
+        <fa-icon class="me-2"  [icon]="faFilePdf"></fa-icon>
+
       </button>
     </div>
 
   </div>
 </div>
 
-<div class="card rounded">
+<div class="card rounded" #content>
   <div class="card-body my-2 py-25">
     <div class="row mt-3">
       <div class="col-12">
         <div class="table-responsive">
+
           <table mat-table [dataSource]="dataSource" matSort #sort="matSort" >
 
             <!--- Note that these columns can be defined in any order.
@@ -28,19 +37,22 @@
             <!-- Position Column -->
             <ng-container matColumnDef="#">
               <th mat-header-cell *matHeaderCellDef> No. </th>
-              <td mat-cell *matCellDef="let element;let index=index"> {{element.id}} </td>
+              <td mat-cell *matCellDef="let element;let index=index"> {{index+1}} </td>
             </ng-container>
-
+            <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef> Code </th>
+              <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+            </ng-container>
             <!-- Name Column -->
             <ng-container matColumnDef="active">
               <th mat-header-cell *matHeaderCellDef> Activé </th>
-              <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+              <td mat-cell *matCellDef="let element"> <mat-slide-toggle [checked]="element.active" (click)="stateFacture(element)" ></mat-slide-toggle> </td>
             </ng-container>
 
             <!-- Weight Column -->
             <ng-container matColumnDef="date_facture">
               <th mat-header-cell *matHeaderCellDef> Date Facture </th>
-              <td mat-cell *matCellDef="let element"> {{element.dateFacture}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.dateFacture }} </td>
             </ng-container>
 
             <!-- Symbol Column -->
@@ -49,10 +61,6 @@
               <td mat-cell *matCellDef="let element"> {{element.montantFacture}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="montant_remise">
-              <th mat-header-cell *matHeaderCellDef> Montant Remise </th>
-              <td mat-cell *matCellDef="let element"> {{element.montantRemise}} </td>
-            </ng-container>
 
             <ng-container matColumnDef="client">
               <th mat-header-cell *matHeaderCellDef> Client </th>
@@ -62,8 +70,8 @@
             <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef> Actions </th>
               <td mat-cell *matCellDef="let element">
-                <button class="btn" (click)="openDialogEditFacture(element)">
-                  <fa-icon [icon]="faPen"></fa-icon>
+                <button class="btn" (click)="openDialogDetailFacture(element)">
+                  <fa-icon [icon]="faEye"></fa-icon>
                 </button>
                 <button class="btn" (click)="onDelete(element.id)">
                   <fa-icon class="text-danger" [icon]="faTrashAlt"></fa-icon>

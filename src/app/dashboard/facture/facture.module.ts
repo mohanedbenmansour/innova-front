@@ -8,16 +8,18 @@ import { FactureUpdateComponent } from './facture-update/facture-update.componen
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularMaterialModule } from 'src/app/shared/angular-material.module';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { FactureDetailComponent } from './facture-detail/facture-detail.component';
 
 
 @NgModule({
   declarations: [
     FactureComponent,
     FactureListComponent,
-    FactureUpdateComponent
+    FactureUpdateComponent,
+    FactureDetailComponent
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     {

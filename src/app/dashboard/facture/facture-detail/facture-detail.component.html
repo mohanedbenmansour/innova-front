@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-between ">
+  <h3 mat-dialog-title class="text-accent">
+    <fa-icon class="me-2" color="primary" [icon]="faBuilding"></fa-icon>
+    {{pageTitle}}
+  </h3>
+  <div>
+
+
+    <button  mat-icon-button color="accent" (click)="makePDF()">
+      <b>PDF     </b>
+      <fa-icon class="me-2"  [icon]="faFilePdf"></fa-icon>
+
+    </button>
+  </div>
+  <button mat-icon-button aria-label="close dialog" color="primary" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+
+<div class="card" style="box-shadow: none;">
+
+  <div class="card-body">
+    <div class="row ">
+
+
+        <div class="row" #content>
+          <div class="col-md-12">
+
+            <h1>Code Facture: {{facture.code}}</h1>
+
+
+          </div>
+          <div class="col-md-12">
+
+              <h1 *ngIf="facture.active==true" > Etat : Active</h1>
+              <h1 *ngIf="facture.active==false" >Etat : Inactive</h1>
+
+          </div>
+          <div class="col-md-12">
+
+              <h1>Date Facture: {{facture.dateFacture}}</h1>
+
+
+          </div>
+          <div class="col-md-12">
+
+              <h1>montant Facture: {{facture.montantFacture}}</h1>
+
+          </div>
+          <div class="col-md-12">
+
+              <h1>Client: {{facture.client.prenom}} {{facture.client.nom}}</h1>
+
+          </div>
+          <h1>Produits :</h1>
+          <div *ngFor="let detail of facture.detailFactures">
+          <div class="col-md-12">
+
+            <h2 >Produit: {{detail.produit.libelle}}</h2>
+
+
+          </div>
+
+          <div class="col-md-12">
+
+            <h3>Prix Unitaire: {{detail.prix}}</h3>
+
+
+          </div>
+            <div class="col-md-12">
+
+              <h3>Quantité: {{detail.qte}}</h3>
+
+
+            </div>
+
+
+
+        </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+

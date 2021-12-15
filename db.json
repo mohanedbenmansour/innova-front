@@ -156,68 +156,91 @@
       "id": "rYkxKuA"
     }
   ],
+  "stocks": [
+    {
+      "id": 2,
+      "libelleStock": "pates",
+      "qte": 100,
+      "qteMin": 50
+    },
+    {
+      "id": 3,
+      "libelleStock": "rrrr",
+      "qte": 100,
+      "qteMin": 50
+    },
+    {
+      "id": 4,
+      "client": {
+        "categorieClient": "Fidele",
+        "dateNaissance": "2021-12-13T20:48:05.606Z",
+        "email": "string",
+        "idClient": 1,
+        "nom": "string",
+        "password": "string",
+        "prenom": "string",
+        "profession": "Autre"
+      }
+    }
+  ],
+  "clients": [
+    {
+      "nom": "feriel",
+      "prenom": "ben rahal",
+      "email": "mouradbenrahal@esprit.tn",
+      "date_naissance": "10/12/1998",
+      "profession": "AUTOR",
+      "categorie_client": "FIDELE",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "categorie_client": "FIDELE",
+      "date_naissance": "10/12/1998",
+      "email": "omar@esprit.tn",
+      "nom": "omar",
+      "prenom": "elloumi",
+      "password": "omar123",
+      "profession": "AUTOR"
+    },
+    {
+      "id": "3",
+      "categorie_client": "FIDELE",
+      "date_naissance": "10/12/1998",
+      "email": "mohaned@esprit.tn",
+      "nom": "mohaned",
+      "prenom": "ben mansour",
+      "password": "mohaned123",
+      "profession": "DOCTOR"
+    },
+    {
+      "id": "4",
+      "categorie_client": "FIDELE",
+      "date_naissance": "10/12/1998",
+      "email": "mouradbenrahal@esprit.tn",
+      "nom": "mourad",
+      "prenom": "ben rahal",
+      "password": "mourad123",
+      "profession": "AUTOR"
+    }
+  ],
   "factures": [
     {
-      "active": true,
-      "dateFacture": "2021-12-13T10:00:49.374Z",
-      "id": 1,
-      "jeton": 0,
-      "montantFacture": 50,
-      "montantRemise": 60,
-      "client": {
-        "categorieClient": "Fidele",
-        "dateNaissance": "2021-12-13T20:48:05.606Z",
-        "email": "string",
-        "idClient": 1,
-        "nom": "string",
-        "password": "string",
-        "prenom": "string",
-        "profession": "Autre"
-      }
-    },
-    {
-      "active": true,
-      "dateFacture": "2021-12-13T10:00:49.374Z",
-      "id": 2,
-      "jeton": 1,
-      "montantFacture": 50,
-      "montantRemise": 60,
-      "client": {
-        "categorieClient": "Fidele",
-        "dateNaissance": "2021-12-13T20:48:05.606Z",
-        "email": "string",
-        "idClient": 1,
-        "nom": "string",
-        "password": "string",
-        "prenom": "string",
-        "profession": "Autre"
-      }
-    },
-    {
+      "code": "696969",
       "active": true,
       "dateFacture": "2021-12-13T10:00:49.374Z",
       "id": 3,
-      "jeton": 2,
-      "montantFacture": 50,
-      "montantRemise": 60,
-      "client": {
-        "categorieClient": "Fidele",
-        "dateNaissance": "2021-12-13T20:48:05.606Z",
-        "email": "string",
-        "idClient": 1,
-        "nom": "string",
-        "password": "string",
-        "prenom": "string",
-        "profession": "Autre"
-      }
-    },
-    {
-      "active": true,
-      "dateFacture": "2021-12-13T10:00:49.374Z",
-      "id": 4,
-      "jeton": 3,
-      "montantFacture": 50,
-      "montantRemise": 60,
+      "montantFacture": "60",
+      "detailFactures": [
+        {
+          "produit": {
+            "code": "string",
+            "libelle": "string"
+          },
+          "qte": 0,
+          "prix": 0
+        }
+      ],
       "client": {
         "categorieClient": "Fidele",
         "dateNaissance": "2021-12-13T20:48:05.606Z",
