@@ -6,11 +6,7 @@ import { FrontOfficeComponent } from './front-office.component';
 import { FrontNavbarComponent } from './front-navbar/front-navbar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AngularMaterialModule } from 'src/app/shared/angular-material.module';
-import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu';
 import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
@@ -21,7 +17,8 @@ import { CartComponent } from './cart/cart.component';
   imports: [
     FontAwesomeModule,
     CommonModule,
-    FrontOfficeRoutingModule
+    FrontOfficeRoutingModule,
+    MatMenuModule
   ]
 })
 export class FrontOfficeModule { }
