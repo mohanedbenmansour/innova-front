@@ -15,7 +15,7 @@ import {FactureService} from "../../../core/facture.service";
 })
 export class FactureUpdateComponent implements OnInit {
   factureForm!: FormGroup ;
-  pageTitle = 'new Facture';
+  pageTitle = 'Detail Facture';
   faBuilding=faBuilding
   faPlusCircle=faPlusCircle
 

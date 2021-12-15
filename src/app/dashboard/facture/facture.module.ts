@@ -11,13 +11,15 @@ import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { FactureDetailComponent } from './facture-detail/facture-detail.component';
 
 
 @NgModule({
   declarations: [
     FactureComponent,
     FactureListComponent,
-    FactureUpdateComponent
+    FactureUpdateComponent,
+    FactureDetailComponent
   ],
   imports: [
     CommonModule,
