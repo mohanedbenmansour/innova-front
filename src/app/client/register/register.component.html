@@ -1,10 +1,10 @@
 <div class="container">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="card card-container">
             <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                 <div class="form-group">
                     <label for="nom">Nom</label>
-                    <input type="text" class="form-control" name="nom" [(ngModel)]="form.nom" required minlength="3"
+                    <input type="text" class="form-control" name="nom" [(ngModel)]="form.Nom" required minlength="3"
                         maxlength="20" #nom="ngModel" />
                     <div class="alert-danger" *ngIf="nom.errors && f.submitted">
                         <div *ngIf="nom.errors.required">Name is required</div>

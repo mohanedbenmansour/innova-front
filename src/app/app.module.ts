@@ -8,8 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularMaterialModule } from './shared/angular-material.module';
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     AngularMaterialModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    {
+      provide: MAT_DIALOG_DATA,
+      useValue: {}
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

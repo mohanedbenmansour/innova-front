@@ -28,6 +28,10 @@ export class FrontNavbarComponent implements OnInit {
     this.router.navigateByUrl("/front-office/shop")
   }
 
+  goToEditProfile() {
+    this.router.navigateByUrl("/front-office/editProfil")
+  }
+
   openPopUpCart() {
     const dialogRef = this.dialog.open(CartComponent,
       {
@@ -45,7 +49,11 @@ export class FrontNavbarComponent implements OnInit {
 
   getUser() {
     this.user = this.tokenStorage.getUser();
-    console.log(this.user, 'user')
+  }
+
+  logout() {
+    this.tokenStorage.signOut()
+    this.router.navigateByUrl("/login")
   }
 
 }

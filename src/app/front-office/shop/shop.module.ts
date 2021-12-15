@@ -22,7 +22,7 @@ import { ListProductsComponent } from './list-products/list-products.component';
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
-    
+
   ],
   providers: [
     {

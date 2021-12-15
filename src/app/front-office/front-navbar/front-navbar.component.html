@@ -15,15 +15,16 @@
                 <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
             </button>
 
-            <button class="btn btn-outline-none" mat-button [matMenuTriggerFor]="menu">
-                {{user.nom}}
+            <button class="btn btn-outline-none mx-2" mat-button [matMenuTriggerFor]="menu">
+                <fa-icon class="mb-2 px-2" [icon]="faUsers"></fa-icon>
+                <span>{{user.nom |uppercase}}</span>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                    <fa-icon class="mb-2" [icon]="faUserEdit"></fa-icon>
-                    edit profile
+                <button mat-menu-item (click)="goToEditProfile()">
+                    <fa-icon class="mb-2 px-2" [icon]="faUserEdit"></fa-icon>
+                    <span>edit profile</span>
                 </button>
-                <button mat-menu-item>Deconnexion</button>
+                <button mat-menu-item (click)="logout()">Deconnexion</button>
             </mat-menu>
         </div>
     </div>
