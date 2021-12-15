@@ -136,7 +136,7 @@ export class StockListComponent implements OnInit {
 
 
 
-   Searchrayon(key: any) {
+   searchStock(key: any) {
     console.log(key);
     const results: any[] = [];
     for (const s of this.stockList) {
