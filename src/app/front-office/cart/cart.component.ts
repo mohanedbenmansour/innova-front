@@ -14,7 +14,7 @@ var _ = require('lodash');
 })
 export class CartComponent implements OnInit {
 currentUser:any
-cartItems:any
+cartItems:any[]=[]
 faTrashAlt=faTrashAlt
 total:number=0;
 productQuantities:number[]=[]
@@ -75,6 +75,7 @@ console.log(this.currentUser)
 
 
   goToCheckout(){
+
     let detailFacture:any[]=[]
     let facture:any={}
     this.cartItems.forEach((item:any) => {
@@ -89,6 +90,13 @@ console.log(this.currentUser)
     facture.code=this.ranCode(6);
     facture.active=true
     facture.dateFacture=new Date()
+ this.cartItems.forEach((item:any) => {
+         this.cartService.deleteCart(item.id).subscribe(
+           (data)=>{
+             console.log(data)
+           }
+         )
+       });
     this.factureService.addFacture(facture).subscribe(
       (date)=>{
         this.openSnackBar("Your checkout has been submitted", 'success')
@@ -98,6 +106,15 @@ console.log(this.currentUser)
     console.log("detailfacture",detailFacture)
     console.log("total",this.total)
 
+  }
+
+  removeCart(cart:any){
+    this.total-=cart.prixUnitaire*cart.quantity
+this.cartService.deleteCart(cart.id).subscribe(
+  (data)=>{
+    this.getCartItems()
+  }
+)
   }
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
